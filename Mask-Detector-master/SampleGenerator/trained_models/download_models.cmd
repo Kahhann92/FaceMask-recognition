@@ -1,0 +1,5 @@
+curl http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 --output shape_predictor.dat.bz
+curl http://dlib.net/files/dlib_face_recognition_resnet_model_v1.dat.bz2 --output face_recognition.dat.bz
+
+bzip2 -d shape_predictor.dat.bz
+bzip2 -d face_recognition.dat.bz
