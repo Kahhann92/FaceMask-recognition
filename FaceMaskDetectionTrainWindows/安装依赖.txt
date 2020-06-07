@@ -1,0 +1,3 @@
+pip install tensorflow-cpu==1.15    -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install keras    -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install python-opencv    -i https://pypi.tuna.tsinghua.edu.cn/simple
