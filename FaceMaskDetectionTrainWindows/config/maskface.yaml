@@ -1,0 +1,162 @@
+# Model structure
+input_shape:
+  - 260
+  - 260
+  - 3
+
+num_class:
+  2
+
+detection_layer_config:
+  conv2d_3_activation:
+    scale:
+      - 0.04
+      - 0.056
+    aspect_ratio:
+      - 1
+      - 0.62
+      - 0.42
+    insert_addition_conv_num:
+      1
+    insert_addition_conv_filter:
+      64
+  conv2d_4_activation:
+    scale:
+      - 0.08
+      - 0.11
+    aspect_ratio:
+      - 1
+      - 0.62
+      - 0.42
+    insert_addition_conv_num:
+      1
+    insert_addition_conv_filter:
+      64
+  conv2d_5_activation:
+    scale:
+      - 0.16
+      - 0.22
+    aspect_ratio:
+      - 1
+      - 0.62
+      - 0.42
+    insert_addition_conv_num:
+      1
+    insert_addition_conv_filter:
+      64
+  conv2d_6_activation:
+    scale:
+      - 0.32
+      - 0.45
+    aspect_ratio:
+      - 1
+      - 0.62
+      - 0.42
+    insert_addition_conv_num:
+      1
+    insert_addition_conv_filter:
+      64
+
+  conv2d_7_activation:
+    scale:
+      - 0.64
+      - 0.72
+    aspect_ratio:
+      - 1
+      - 0.62
+      - 0.42
+    insert_addition_conv_num:
+      1
+    insert_addition_conv_filter:
+      64
+
+# Dataset part
+trainset_path:
+  '/Users/yaofeifan/Documents/Tsinghua/Lesson/模式识别/Project1/data/AIZOO/人脸口罩检测数据集/train'
+valset_path:
+  '/Users/yaofeifan/Documents/Tsinghua/Lesson/模式识别/Project1/data/AIZOO/人脸口罩检测数据集/val'
+
+class2id:
+  face_mask:
+    0
+  face:
+    1
+#  face:
+#    0
+#  have_mask:
+#    0
+#  no_mask:
+#    1
+
+
+# Data Preprocess
+preprocess:
+  random_horizontal_flip:
+    open:
+      true
+  random_crop:
+    open:
+      true
+    min_width_ratio:
+      0.7
+    min_height_ratio:
+      0.8
+  color_aug:
+    open:
+      true
+    scale:
+      0.5
+  attach_object:
+    open:
+      true
+    prob:
+      0.5
+    attach_img_dir:
+      /home/daniel/Data/Projects/FaceMaskDetectionTrain/attach_data/mask
+
+
+batch_size:
+  16
+
+loss_weight:
+  loc:
+    1
+  cls:
+    1
+
+model_save_path:
+  models/face_mask_detector_v2_{epoch:03d}_val_loss_{val_loss:.4f}_loc_loss_{val_loc_branch_concat_loss:.4f}_cls_loss_{val_cls_branch_concat_loss:.4f}.hdf5
+
+fine_tune_path:
+  None
+  #'/home/daniel/Data/Projects/KeDetion/models/face_mask_detector_v2_020_val_loss_2.7246_loc_loss_0.9568_cls_loss_1.4528.hdf5'
+
+
+fine_tune_epoch:
+  0
+
+optimizer:
+  name:
+    Adam
+  lr:
+    0.001
+  decay_factor:
+    0.00
+
+lr_decay_method:
+  name:
+    ReduceLROnPlateau
+  factor:
+    0.7
+  patience:
+    3
+  min_lr:
+    0.000001
+
+#GPU
+gpu_id:
+  '0'
+
+
+
+
