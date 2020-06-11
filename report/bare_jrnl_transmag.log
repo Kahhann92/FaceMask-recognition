@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.9.4)  12 JUN 2020 00:57
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.9.4)  12 JUN 2020 01:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -842,8 +842,8 @@ Overfull \hbox (42.13304pt too wide) detected at line 502
 ]
 File: list.png Graphic file (type bmp)
 <list.png>
-File: update.png Graphic file (type bmp)
-<update.png>
+File: update.bmp Graphic file (type bmp)
+<update.bmp>
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -888,12 +888,24 @@ Underfull \hbox (badness 1748) in paragraph at lines 583--597
 n/10.53937 mAP@.5,
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 785.
-[4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 785.
+File: ssdResult.bmp Graphic file (type bmp)
+<ssdResult.bmp>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: ssdResult.bmp Graphic file (type bmp)
+<ssdResult.bmp>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 802.
+[4] [5
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 802.
  (./bare_jrnl_transmag.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 785.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 785.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 802.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 802.
 Package rerunfilecheck Info: File `bare_jrnl_transmag.out' has not changed.
 (rerunfilecheck)             Checksum: 412F7E3DB6F3CD799C549DBDAF982453.
 
@@ -903,15 +915,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 785.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 802.
  ) 
 Here is how much of TeX's memory you used:
- 25531 strings out of 492916
- 520822 string characters out of 6133346
+ 25566 strings out of 492916
+ 523222 string characters out of 6133346
  599244 words of memory out of 5000000
- 29306 multiletter control sequences out of 15000+600000
+ 29339 multiletter control sequences out of 15000+600000
  540614 words of font info for 104 fonts, out of 8000000 for 9000
  1351 hyphenation exceptions out of 8191
  56i,18n,74p,539b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bare_jrnl_transmag.xdv (4 pages, 92284 bytes).
+Output written on bare_jrnl_transmag.xdv (5 pages, 96288 bytes).
