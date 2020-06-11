@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.9.4)  11 JUN 2020 20:34
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.9.4)  11 JUN 2020 23:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -818,66 +818,55 @@ Overfull \hbox (42.13304pt too wide) detected at line 500
 ]
 File: list.png Graphic file (type bmp)
 <list.png>
-File: E1.jpg Graphic file (type bmp)
-<E1.jpg>
-File: E2.jpg Graphic file (type bmp)
-<E2.jpg>
+File: update.png Graphic file (type bmp)
+<update.png>
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-File: E3.jpg Graphic file (type bmp)
-<E3.jpg>
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: E4.jpg Graphic file (type bmp)
-<E4.jpg>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: E5.jpg Graphic file (type bmp)
-<E5.jpg>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 584--585
+Underfull \hbox (badness 10000) in paragraph at lines 549--550
 []\TU/lmr/m/n/10.53937 AIZOO \TU/FandolSong-Regular(0)/m/n/10.53937 的 \TU/lmr/m
 /n/10.53937 FaceMaskDetection \TU/FandolSong-Regular(0)/m/n/10.53937 数 据 集
  []
 
 
-Overfull \hbox (0.58649pt too wide) in paragraph at lines 584--585
+Overfull \hbox (0.58649pt too wide) in paragraph at lines 549--550
 |\TU/FandolSong-Regular(0)/m/n/10.53937 （\TU/lmr/m/n/10.53937 https://github.co
 m/AIZOOTech/FaceMaskDetection\TU/FandolSong-Regular(0)/m/n/10.53937 ）|
  []
 
-
-Underfull \hbox (badness 3989) in paragraph at lines 586--587
+[2]
+Underfull \hbox (badness 3989) in paragraph at lines 551--552
 []\TU/lmr/m/n/10.53937 Real-World Masked Face Dataset(RMFD) \TU/FandolSong-Regu
 lar(0)/m/n/10.53937 数
  []
 
 
-Underfull \hbox (badness 2384) in paragraph at lines 586--587
+Underfull \hbox (badness 2384) in paragraph at lines 551--552
 \TU/FandolSong-Regular(0)/m/n/10.53937 据 集  |（\TU/lmr/m/n/10.53937 https://gith
 ub.com/X-zhangyang/Real-World-
  []
 
+File: Dataset.pdf Graphic file (type pdf)
+<use Dataset.pdf>
+[3]
+File: Ssdloss.pdf Graphic file (type pdf)
+<use Ssdloss.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 588--589
-
+Underfull \hbox (badness 1748) in paragraph at lines 581--582
+[]\TU/FandolSong-Regular(0)/m/n/10.53937 下 表 中 展 示 各 个 模 型 每 个 类 别 的 \TU/lmr/m/
+n/10.53937 mAP@.5,
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 777.
-[3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 777.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 770.
+[4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 770.
  (./bare_jrnl_transmag.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 777.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 777.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 770.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 770.
 Package rerunfilecheck Info: File `bare_jrnl_transmag.out' has not changed.
-(rerunfilecheck)             Checksum: C750191F1229C1A19E028698B3ACF9B7.
+(rerunfilecheck)             Checksum: 412F7E3DB6F3CD799C549DBDAF982453.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -885,15 +874,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 777.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 770.
  ) 
 Here is how much of TeX's memory you used:
- 25270 strings out of 492916
- 516599 string characters out of 6133346
- 594862 words of memory out of 5000000
- 29053 multiletter control sequences out of 15000+600000
+ 25276 strings out of 492916
+ 517686 string characters out of 6133346
+ 594949 words of memory out of 5000000
+ 29062 multiletter control sequences out of 15000+600000
  540606 words of font info for 103 fonts, out of 8000000 for 9000
  1351 hyphenation exceptions out of 8191
  56i,9n,74p,539b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bare_jrnl_transmag.xdv (3 pages, 79812 bytes).
+Output written on bare_jrnl_transmag.xdv (4 pages, 90504 bytes).

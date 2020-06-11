@@ -438,7 +438,7 @@
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-
+目标检测 SSD 
 \end{IEEEkeywords}}
 
 % make the title area
@@ -518,6 +518,7 @@ Fast R-CNN[4]指出R-CNN耗时的原因是CNN是在每一个Proposal上单独进
 图片经过feature extractor得到feature map, 同时在原图上运行Selective Search算法并将RoI（Region of Interset，实为坐标组，可与Region Proposal混用）映射到到feature map上，再对每个RoI进行RoI Pooling操作便得到等长的feature vector，将这些得到的feature vector进行正负样本的整理（保持一定的正负样本比例），分batch传入并行的R-CNN子网络，同时进行分类和回归，并将两者的损失统一起来。Fast R-CNN将Proposal, Feature Extractor, Object Classification和Localization统一在一个整体的结构中，并通过共享卷积计算提高特征利用效率。
 
 Faster R-CNN是2-stage方法的奠基性工作，提出的RPN网络取代Selective Search算法使得检测任务可以由神经网络端到端地完成。RPN网络将Proposal这一任务建模为二分类（是否为物体）的问题。第一步是在一个滑动窗口上生成不同大小和长宽比例的anchor box（如上图右边部分），取定IoU的阈值，按Ground Truth标定这些anchor box的正负。于是，传入RPN网络的样本数据被整理为anchor box（坐标）和每个anchor box是否有物体（二分类标签）。RPN网络将每个样本映射为一个概率值和四个坐标值，概率值反应这个anchor box有物体的概率，四个坐标值用于回归定义物体的位置。最后将二分类和坐标回归的损失统一起来，作为RPN网络的目标训练。由RPN得到Region Proposal在根据概率值筛选后经过类似的标记过程，被传入R-CNN子网络，进行多分类和坐标回归，同样用多任务损失将二者的损失联合。
+
 \subsection{深度学习目标检测的发展}
 深度学习对目标检测的在经典的研究上不断发展，诞生了大量的工作。
 \begin{figure}[h]
@@ -532,51 +533,15 @@ Faster R-CNN是2-stage方法的奠基性工作，提出的RPN网络取代Selecti
 在这个基础上，一系列技术也得到了进步[5]：
 \begin{figure}[h]
 \centering
-\includegraphics[width=3.44in]{E1.jpg}
+\includegraphics[width=3.44in]{update.png}
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
-\caption{Evolution of multi-scale detection techniques in object detection from 2001 to 2019}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=3.44in]{E2.jpg}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Evolution of bounding box regression techniques in object detection from 2001 to 2019}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=3.44in]{E3.jpg}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Evolution of context priming in object detection from 2001 to 2019}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=3.44in]{E4.jpg}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Evolution of non-max suppression (NMS) techniques in object detection from 1994 to 2019}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=3.44in]{E5.jpg}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Evolution of hard negative mining techniques in object detection from 1994 to 2019}
+\caption{Evolution of techniques in object detection from 2001 to 2019}
 \end{figure}
 
 \subsection{本文贡献}
-本文利目标检测深度学习技术检测对人脸口罩进行识别。
+本文利目标检测深度学习技术检测对人脸口罩进行识别。本文构建了3种不同的模型分别是SSD、做口罩目标的检测，分别是SSD、
 
 \section{数据整理}
 采用数据为公开数据集：AIZOO 的 FaceMaskDetection和Real-World Masked Face Dataset(RMFD)。
@@ -585,14 +550,42 @@ AIZOO 的 FaceMaskDetection数据集（https://github.com/AIZOOTech/FaceMaskDete
 
 Real-World Masked Face Dataset(RMFD)数据集（https://github.com/X-zhangyang/Real-World-Masked-Face-Dataset）为武汉大学国家多媒体软件工程技术研究中心收集和标注的口罩数据集 [7]。包含从网络爬取样本，经过整 理、清洗和标注后，含 525 人的 5 千张口罩人脸、9 万正常人脸。以及通过公开数据集中的人脸戴上口 罩，得到 1 万人、50 万张人脸的模拟口罩人脸数据集。
 
-我们使用的AIZOO数据集数据分布如下：\\
+我们使用的AIZOO数据集，可以发现该数据集有两类的数据，分别为口罩和非口罩人像，且数据相对平衡，数据集包含对每张照片的注释，注释信息包含图片的类别、目标的位置，该数据集适合作为训练与测试，该数据分布如下：
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.44in]{Dataset.pdf}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{数据集分布可视化}
+\end{figure}
 
 \section{模型设计}
+\subsection{SSD}
+使用了SSD类型的架构，本模型输入大小为260x260，主干网络只有8个卷积层，加上定位和分类层，一共只有24层（每层的通道数目基本都是32、64、128），只有101.5万参数。八个卷积层是主干网络，也就是特征提取层，20层是定位和分类层。训练目标检测模型，最重要的合理的设置anchor的大小和宽高比，笔通过统计数据集的目标物体的宽高比和大小来设置anchor的大小和宽高比，因为人脸的一般是长方形的，而很多图片是比较宽的，人脸的宽度和高度归一化后，有很多图片的高度是宽度的2倍甚至更大。从上图也可以看出，归一化后的人脸高宽比集中在1\~2.5之间。根据数据的分布，我们将五个定位层的anchor的宽高比统一设置为1，0.62, 0.42。（转换为高宽比，也就是约1，1.6：1，2.4:1）。
 
+为了避免使用手挡住嘴巴就会欺骗部分口罩检测系统的情况，在数据集中加入了部分嘴巴被手捂住的数据，另外在训练的过程中，随机的往嘴巴部分粘贴一些其他物体的图片，从而避免模型认为只要露出嘴巴的就是没戴口罩，没露出嘴巴的就是带口罩这个问题，通过这两个规避方法，解决了非口罩遮挡物被当作口罩的误判。后处理部分主要就是非最大抑制（NMS），我们使用了单类的NMS，也就是戴口罩人脸和不戴口罩人脸两个类别一起做NMS，从而提高速度。
+
+迭代下模型Loss如下：
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.44in]{Ssdloss.pdf}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{数据集分布可视化}
+\end{figure}
 \section{实验设计及结果}
+数据集将训练集分为训练样本和验证样本，并对测试集中的样本进行测试。
+
+下表中展示各个模型每个类别的 mAP@.5, mAP@.7, mAP@.9, mAP@[.5:.95]。
+
 \section{实验结果分析}
+
 \section{小组成员贡献}
+
 \section{参考代码}
+
 \section{结论}
 
 % needed in second column of first page if using \IEEEpubid

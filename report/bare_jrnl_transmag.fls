@@ -205,10 +205,8 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
 OUTPUT bare_jrnl_transmag.xdv
 INPUT list.png
-INPUT E1.jpg
-INPUT E2.jpg
-INPUT E3.jpg
-INPUT E4.jpg
-INPUT E5.jpg
+INPUT update.png
+INPUT Dataset.pdf
+INPUT Ssdloss.pdf
 INPUT bare_jrnl_transmag.aux
 INPUT ./bare_jrnl_transmag.out
