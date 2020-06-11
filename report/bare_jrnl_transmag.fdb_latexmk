@@ -1,10 +1,10 @@
 # Fdb version 3
-["xdvipdfmx"] 1591888269 "bare_jrnl_transmag.xdv" "bare_jrnl_transmag.pdf" "bare_jrnl_transmag" 1591888279
-  "bare_jrnl_transmag.xdv" 1591888269 90504 2488e6e66e44ddb8da34a59866f50978 "xelatex"
+["xdvipdfmx"] 1591894665 "bare_jrnl_transmag.xdv" "bare_jrnl_transmag.pdf" "bare_jrnl_transmag" 1591894675
+  "bare_jrnl_transmag.xdv" 1591894665 92284 612808b7d4a73593a30858935be6d25f "xelatex"
   (generated)
   "bare_jrnl_transmag.pdf"
-["xelatex"] 1591888267 "bare_jrnl_transmag.tex" "bare_jrnl_transmag.xdv" "bare_jrnl_transmag" 1591888279
-  "/dev/null" 1591888276 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1591894663 "bare_jrnl_transmag.tex" "bare_jrnl_transmag.xdv" "bare_jrnl_transmag" 1591894675
+  "/dev/null" 1591894657 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm" 1136768653 1804 7b5f73028f6509167f47ace9d69509ed ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm" 1136768653 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
@@ -68,8 +68,10 @@
   "/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.cfg" 1551393442 1830 8ebf24b6078970a5f7b81814f96ef6bc ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.sty" 1551393442 80450 ccf6250c881393368e27f23b483782ab ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstmisc.sty" 1551393442 77022 9205b75844150972cc4077e78ec26b25 ""
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/makecell/makecell.sty" 1249334690 15773 2dd7dde1ec1c2a3d0c85bc3b273e04d8 ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/ms/everysel.sty" 1320274502 4623 936bfb87af7b91b6496a2317f80db16b ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/ms/ragged2e.sty" 1244852698 9938 95cd4dc3edfd2c1a9e8f3f4cc43db1ce ""
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/multirow/multirow.sty" 1546383059 5164 bcc9f9eb87b893f14f0e34388a369d7e ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/auxhook.sty" 1463608860 3834 4363110eb0ef1eb2b71c8fcbcdb6c357 ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/kvoptions.sty" 1463608860 22417 1d9df1eb66848aa31b18a593099cf45c ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty" 1463608860 9581 023642318cef9f4677efe364de1e2a27 ""
@@ -81,6 +83,7 @@
   "/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ot1zplm.fd" 1137110629 436 5e7baa1a259bab50a2bdffad6426f38c ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/t1ptm.fd" 1137110629 774 61d7da1e9f9e74989b196d147e623736 ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/setspace/setspace.sty" 1324344192 22913 a27d7908fc6f0385466454a966a316eb ""
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/tools/array.sty" 1546812253 12527 31ab547f6520657998ecf91709f950ac ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/tools/enumerate.sty" 1523050425 3465 3f63ff30365d38132fb55859c9cabd4d ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/tools/indentfirst.sty" 1523050425 1615 dba466e323af4fcd4a6acb87444d96c3 ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
@@ -96,13 +99,13 @@
   "Dataset.pdf" 1591882490 4612 9a00618414b6f1e69bf9cd0a4d07d698 ""
   "IEEEtran.cls" 1576068578 215481 a8e3eb4823bbc2132bb2fd635fe3076e ""
   "Ssdloss.pdf" 1591426620 9256 2d0b7b68e362fd017c1e66f8a9cfdfdf ""
-  "bare_jrnl_transmag.aux" 1591888269 3748 48f75d6d1ba8183cf5fe873f3aa4ab9c "xelatex"
-  "bare_jrnl_transmag.out" 1591888269 1891 412f7e3db6f3cd799c549dbdaf982453 "xelatex"
-  "bare_jrnl_transmag.tex" 1591888266 39460 705b70f0049559fe6e11bfbf1c71ed22 ""
+  "bare_jrnl_transmag.aux" 1591894665 3878 ef60ee9465beb14cae98d4ab3e0e4c94 "xelatex"
+  "bare_jrnl_transmag.out" 1591894665 1891 412f7e3db6f3cd799c549dbdaf982453 "xelatex"
+  "bare_jrnl_transmag.tex" 1591894663 39897 132753616c161fef9a381bc98c0773b2 ""
   "list.png" 1591025204 73145 14936dc16f5502ad35f0d5703655341c ""
   "update.png" 1591885068 3833925 0f540ad55595588ef8a8ed8d1bc0b9d7 ""
   (generated)
   "bare_jrnl_transmag.aux"
-  "bare_jrnl_transmag.log"
   "bare_jrnl_transmag.xdv"
   "bare_jrnl_transmag.out"
+  "bare_jrnl_transmag.log"

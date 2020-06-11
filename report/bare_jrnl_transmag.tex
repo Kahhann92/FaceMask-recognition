@@ -80,6 +80,8 @@
 \usepackage{color} % 颜色
 \usepackage{hyperref} % 链接
 \usepackage{listings}
+\usepackage{multirow}
+\usepackage{makecell}
 %
 % If IEEEtran.cls has not been installed into the LaTeX system files,
 % manually specify the path to it like:
@@ -579,6 +581,19 @@ Real-World Masked Face Dataset(RMFD)数据集（https://github.com/X-zhangyang/R
 数据集将训练集分为训练样本和验证样本，并对测试集中的样本进行测试。
 
 下表中展示各个模型每个类别的 mAP@.5, mAP@.7, mAP@.9, mAP@[.5:.95]。
+\begin{table}[!htbp]
+\caption{不同模型下的mAP}  
+\begin{center}  
+\begin{tabular}{|l|l|l|l|l|l|}  
+\hline
+$Model$ & $Class$ & $mAP@.5$ & $mAP@.7$ & $mAP@.9$ & $mAP@[.5:.95]$ \\ \hline
+\multirow{2}{*}{\makecell[c]{SSD}}
+ & Mask & 0.86 & 0.79 & 0.21 & \makecell[c]{0.61}\\ \cline{2-6}
+ & Face & 0.81 & 0.79 & 0.30 & 0.64\\ \hline
+
+\end{tabular}  
+\end{center}  
+\end{table}
 
 \section{实验结果分析}
 

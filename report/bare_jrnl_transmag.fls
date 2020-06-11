@@ -163,6 +163,12 @@ INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/stringenc.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/stringenc.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/makecell/makecell.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/makecell/makecell.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/tools/array.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
 INPUT bare_jrnl_transmag.aux
