@@ -1,10 +1,10 @@
 # Fdb version 3
-["xdvipdfmx"] 1591107494 "bare_jrnl_transmag.xdv" "bare_jrnl_transmag.pdf" "bare_jrnl_transmag" 1591156093
-  "bare_jrnl_transmag.xdv" 1591107494 79488 0533d3ebea710aa772b58ca986538ebf "xelatex"
+["xdvipdfmx"] 1591878866 "bare_jrnl_transmag.xdv" "bare_jrnl_transmag.pdf" "bare_jrnl_transmag" 1591878869
+  "bare_jrnl_transmag.xdv" 1591878866 79812 c56d5d12a1d2db5f24413db0ddbf2f3b "xelatex"
   (generated)
   "bare_jrnl_transmag.pdf"
-["xelatex"] 1591107492 "bare_jrnl_transmag.tex" "bare_jrnl_transmag.xdv" "bare_jrnl_transmag" 1591156093
-  "/dev/null" 1591156092 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1591878864 "bare_jrnl_transmag.tex" "bare_jrnl_transmag.xdv" "bare_jrnl_transmag" 1591878869
+  "/dev/null" 1591878838 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm" 1136768653 1804 7b5f73028f6509167f47ace9d69509ed ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm" 1136768653 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
@@ -99,12 +99,12 @@
   "E4.jpg" 1591069137 589393 dc9294a9906edde2f8954d38987be632 ""
   "E5.jpg" 1591069146 470580 0000b18a6fa31a2bf0ae330a95a0b22e ""
   "IEEEtran.cls" 1576068578 215481 a8e3eb4823bbc2132bb2fd635fe3076e ""
-  "bare_jrnl_transmag.aux" 1591107494 4127 1b028ae4fe68b487a313f53faf64b5cb "xelatex"
-  "bare_jrnl_transmag.out" 1591107494 1818 c750191f1229c1a19e028698b3acf9b7 "xelatex"
-  "bare_jrnl_transmag.tex" 1591156092 38125 1e7af880ee45cb3d8dd32d40e4972923 ""
+  "bare_jrnl_transmag.aux" 1591878866 4127 1b028ae4fe68b487a313f53faf64b5cb "xelatex"
+  "bare_jrnl_transmag.out" 1591878866 1818 c750191f1229c1a19e028698b3acf9b7 "xelatex"
+  "bare_jrnl_transmag.tex" 1591878863 38179 922ae5ac9d8d4f4483bf9a89eeba7bf3 ""
   "list.png" 1591025204 73145 14936dc16f5502ad35f0d5703655341c ""
   (generated)
-  "bare_jrnl_transmag.aux"
-  "bare_jrnl_transmag.out"
   "bare_jrnl_transmag.log"
   "bare_jrnl_transmag.xdv"
+  "bare_jrnl_transmag.out"
+  "bare_jrnl_transmag.aux"
