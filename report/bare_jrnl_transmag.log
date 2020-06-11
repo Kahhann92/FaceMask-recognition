@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.9.4)  12 JUN 2020 01:53
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.9.4)  12 JUN 2020 02:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -840,8 +840,8 @@ Overfull \hbox (42.13304pt too wide) detected at line 502
 
 
 ]
-File: list.png Graphic file (type bmp)
-<list.png>
+File: list.bmp Graphic file (type bmp)
+<list.bmp>
 File: update.bmp Graphic file (type bmp)
 <update.bmp>
 
@@ -893,8 +893,8 @@ File: ssdResult.bmp Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-File: ssdResult.bmp Graphic file (type bmp)
-<ssdResult.bmp>
+File: modelgraph.pdf Graphic file (type pdf)
+<use modelgraph.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -918,12 +918,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 802.
  ) 
 Here is how much of TeX's memory you used:
- 25566 strings out of 492916
- 523222 string characters out of 6133346
+ 25569 strings out of 492916
+ 523303 string characters out of 6133346
  599244 words of memory out of 5000000
- 29339 multiletter control sequences out of 15000+600000
+ 29342 multiletter control sequences out of 15000+600000
  540614 words of font info for 104 fonts, out of 8000000 for 9000
  1351 hyphenation exceptions out of 8191
  56i,18n,74p,539b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bare_jrnl_transmag.xdv (5 pages, 96288 bytes).
+Output written on bare_jrnl_transmag.xdv (5 pages, 95544 bytes).

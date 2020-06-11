@@ -1,10 +1,10 @@
 # Fdb version 3
-["xdvipdfmx"] 1591898035 "bare_jrnl_transmag.xdv" "bare_jrnl_transmag.pdf" "bare_jrnl_transmag" 1591898049
-  "bare_jrnl_transmag.xdv" 1591898035 96288 346ac73d39f857b35191517f0233f39b "xelatex"
+["xdvipdfmx"] 1591898916 "bare_jrnl_transmag.xdv" "bare_jrnl_transmag.pdf" "bare_jrnl_transmag" 1591898931
+  "bare_jrnl_transmag.xdv" 1591898916 95544 d62c4f9642f51b0460f99f8320e4a799 "xelatex"
   (generated)
   "bare_jrnl_transmag.pdf"
-["xelatex"] 1591898033 "bare_jrnl_transmag.tex" "bare_jrnl_transmag.xdv" "bare_jrnl_transmag" 1591898049
-  "/dev/null" 1591898037 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1591898914 "bare_jrnl_transmag.tex" "bare_jrnl_transmag.xdv" "bare_jrnl_transmag" 1591898931
+  "/dev/null" 1591898919 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm" 1136768653 1804 7b5f73028f6509167f47ace9d69509ed ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm" 1136768653 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
@@ -99,14 +99,15 @@
   "Dataset.pdf" 1591882490 4612 9a00618414b6f1e69bf9cd0a4d07d698 ""
   "IEEEtran.cls" 1576068578 215481 a8e3eb4823bbc2132bb2fd635fe3076e ""
   "Ssdloss.pdf" 1591426620 9256 2d0b7b68e362fd017c1e66f8a9cfdfdf ""
-  "bare_jrnl_transmag.aux" 1591898035 4352 707ef0bcc4b8d1e7783504a59343d300 "xelatex"
-  "bare_jrnl_transmag.out" 1591898035 1891 412f7e3db6f3cd799c549dbdaf982453 "xelatex"
-  "bare_jrnl_transmag.tex" 1591898030 40938 793d39154a2ad249bfe1927a7d449c14 ""
-  "list.png" 1591025204 73145 14936dc16f5502ad35f0d5703655341c ""
+  "bare_jrnl_transmag.aux" 1591898916 4241 ffd02bf56127f5405b81980d8e526ffc "xelatex"
+  "bare_jrnl_transmag.out" 1591898916 1891 412f7e3db6f3cd799c549dbdaf982453 "xelatex"
+  "bare_jrnl_transmag.tex" 1591898912 40828 f1d41c74457b51b197503ce6637a37fa ""
+  "list.bmp" 1591025204 73145 14936dc16f5502ad35f0d5703655341c ""
+  "modelgraph.pdf" 1591432763 26701 155e960352fa0926e1d531ef008296fd ""
   "ssdResult.bmp" 1591896769 48555964 7e9f41fb9d427ca9ff90a85abcdb7415 ""
   "update.bmp" 1591898002 37410492 09fdea179ab2508525e767d6ff23d7e9 ""
   (generated)
   "bare_jrnl_transmag.xdv"
+  "bare_jrnl_transmag.aux"
   "bare_jrnl_transmag.out"
   "bare_jrnl_transmag.log"
-  "bare_jrnl_transmag.aux"
