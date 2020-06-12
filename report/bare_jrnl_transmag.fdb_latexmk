@@ -1,10 +1,10 @@
 # Fdb version 3
-["xdvipdfmx"] 1591955251 "bare_jrnl_transmag.xdv" "bare_jrnl_transmag.pdf" "bare_jrnl_transmag" 1591969678
-  "bare_jrnl_transmag.xdv" 1591955251 101272 c52374cc118667d3e2f3eab23626e5db "xelatex"
+["xdvipdfmx"] 1591972213 "bare_jrnl_transmag.xdv" "bare_jrnl_transmag.pdf" "bare_jrnl_transmag" 1591972229
+  "bare_jrnl_transmag.xdv" 1591972213 103036 4ecbe62b74b7f65ea4b35ca0394ae684 "xelatex"
   (generated)
   "bare_jrnl_transmag.pdf"
-["xelatex"] 1591955249 "bare_jrnl_transmag.tex" "bare_jrnl_transmag.xdv" "bare_jrnl_transmag" 1591969678
-  "/dev/null" 1591969673 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1591972212 "bare_jrnl_transmag.tex" "bare_jrnl_transmag.xdv" "bare_jrnl_transmag" 1591972229
+  "/dev/null" 1591972215 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm" 1136768653 1804 7b5f73028f6509167f47ace9d69509ed ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm" 1136768653 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
@@ -101,12 +101,13 @@
   "Frcnn.bmp" 1591955244 47044156 2117b40b7bec6edb1954be2fe57faa33 ""
   "IEEEtran.cls" 1576068578 215481 a8e3eb4823bbc2132bb2fd635fe3076e ""
   "Ssdloss.pdf" 1591426620 9256 2d0b7b68e362fd017c1e66f8a9cfdfdf ""
-  "bare_jrnl_transmag.aux" 1591955251 4853 14f93fc3dc0764d7a5b626c0f5b93538 "xelatex"
-  "bare_jrnl_transmag.out" 1591955251 1891 412f7e3db6f3cd799c549dbdaf982453 "xelatex"
-  "bare_jrnl_transmag.tex" 1591969677 42337 b8326a6e8b1556490d052ab4ec7be40e ""
+  "bare_jrnl_transmag.aux" 1591972213 4991 4b25b54e5c60d467b9acd5227cee0639 "xelatex"
+  "bare_jrnl_transmag.out" 1591972213 1891 412f7e3db6f3cd799c549dbdaf982453 "xelatex"
+  "bare_jrnl_transmag.tex" 1591972209 42744 91a2536679c5e8589eb2490e58280200 ""
   "list.bmp" 1591025204 73145 14936dc16f5502ad35f0d5703655341c ""
   "modelgraph.pdf" 1591432763 26701 155e960352fa0926e1d531ef008296fd ""
   "ssdResult.bmp" 1591953128 45734540 16f41dad231c4248e4e2fb5e005ec910 ""
+  "time.pdf" 1591972174 4650 193a6a662e5b4e37589c31ff2b9bc034 ""
   "update.bmp" 1591898002 37410492 09fdea179ab2508525e767d6ff23d7e9 ""
   (generated)
   "bare_jrnl_transmag.xdv"

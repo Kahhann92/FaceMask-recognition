@@ -218,5 +218,6 @@ INPUT ssdResult.bmp
 INPUT FlResult.bmp
 INPUT Frcnn.bmp
 INPUT modelgraph.pdf
+INPUT time.pdf
 INPUT bare_jrnl_transmag.aux
 INPUT ./bare_jrnl_transmag.out
