@@ -215,6 +215,8 @@ INPUT update.bmp
 INPUT Dataset.pdf
 INPUT Ssdloss.pdf
 INPUT ssdResult.bmp
+INPUT FlResult.bmp
+INPUT Frcnn.bmp
 INPUT modelgraph.pdf
 INPUT bare_jrnl_transmag.aux
 INPUT ./bare_jrnl_transmag.out

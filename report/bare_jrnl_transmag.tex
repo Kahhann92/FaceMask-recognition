@@ -588,9 +588,16 @@ Real-World Masked Face Dataset(RMFD)数据集（https://github.com/X-zhangyang/R
 \hline
 $Model$ & $Class$ & $mAP@.5$ & $mAP@.7$ & $mAP@.9$ & $mAP@[.5:.95]$ \\ \hline
 \multirow{2}{*}{\makecell[c]{SSD}}
- & \makecell[c]{Mask} & \makecell[c]{0.86} & \makecell[c]{0.79} & \makecell[c]{0.21} & \makecell[c]{0.61}\\ \cline{2-6}
- & \makecell[c]{Face} & \makecell[c]{0.81} & \makecell[c]{0.79} & \makecell[c]{0.30} & \makecell[c]{0.64}\\ \hline
+ & \makecell[c]{Mask} & \makecell[c]{0.86} & \makecell[c]{0.78} & \makecell[c]{0.22} & \makecell[c]{0.61}\\ \cline{2-6}
+ & \makecell[c]{Face} & \makecell[c]{0.81} & \makecell[c]{0.78} & \makecell[c]{0.29} & \makecell[c]{0.63}\\ \hline
 
+\multirow{2}{*}{\makecell[c]{Focal Loss}}
+& \makecell[c]{Mask} & \makecell[c]{0.90} & \makecell[c]{0.78} & \makecell[c]{0.14} & \makecell[c]{0.59}\\ \cline{2-6}
+& \makecell[c]{Face} & \makecell[c]{0.87} & \makecell[c]{0.84} & \makecell[c]{0.34} & \makecell[c]{0.69}\\ \hline
+
+\multirow{2}{*}{\makecell[c]{Faster RCNN}}
+& \makecell[c]{Mask} & \makecell[c]{0.91} & \makecell[c]{0.82} & \makecell[c]{0.25} & \makecell[c]{0.65}\\ \cline{2-6}
+& \makecell[c]{Face} & \makecell[c]{0.91} & \makecell[c]{0.89} & \makecell[c]{0.47} & \makecell[c]{0.75}\\ \hline 
 \end{tabular}  
 \end{center}  
 \end{table}
@@ -602,8 +609,27 @@ SSD模型下IoU 阈值取 0.5, 0.7, 0.9 时每类的 Precision-Recall 曲线如�
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
-\caption{左侧从上到下分别是口罩目标检测在IoU=0.5、0.7、0.9时的Precision-Recall 曲线；右侧为脸目标检测。}
+\caption{SSD模型的Precision-Recall 曲线（左侧从上到下分别是口罩目标检测在IoU=0.5、0.7、0.9时的Precision-Recall 曲线；右侧为脸目标检测。）}
 \end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.44in]{FlResult.bmp}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Focal Loss模型的Precision-Recall 曲线（左侧从上到下分别是口罩目标检测在IoU=0.5、0.7、0.9时的Precision-Recall 曲线；右侧为脸目标检测。）}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.44in]{Frcnn.bmp}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Faster RCNN模型的Precision-Recall 曲线（左侧从上到下分别是口罩目标检测在IoU=0.5、0.7、0.9时的Precision-Recall 曲线；右侧为脸目标检测。）}
+\end{figure}
+
 \section{实验结果分析}
 SSD模型结构：
 \begin{figure}[h]

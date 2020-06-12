@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.9.4)  12 JUN 2020 02:08
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.9.4)  12 JUN 2020 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -878,12 +878,12 @@ File: Dataset.pdf Graphic file (type pdf)
 File: Ssdloss.pdf Graphic file (type pdf)
 <use Ssdloss.pdf>
 
-Overfull \hbox (63.45053pt too wide) in paragraph at lines 587--595
+Overfull \hbox (97.16624pt too wide) in paragraph at lines 587--602
  [] 
  []
 
 
-Underfull \hbox (badness 1748) in paragraph at lines 583--597
+Underfull \hbox (badness 1748) in paragraph at lines 583--604
 []\TU/FandolSong-Regular(0)/m/n/10.53937 下 表 中 展 示 各 个 模 型 每 个 类 别 的 \TU/lmr/m/
 n/10.53937 mAP@.5,
  []
@@ -893,19 +893,27 @@ File: ssdResult.bmp Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+File: FlResult.bmp Graphic file (type bmp)
+<FlResult.bmp>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: Frcnn.bmp Graphic file (type bmp)
+<Frcnn.bmp>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 File: modelgraph.pdf Graphic file (type pdf)
 <use modelgraph.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 802.
-[4] [5
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 802.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 828.
+[4] [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 828.
  (./bare_jrnl_transmag.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 802.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 802.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 828.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 828.
 Package rerunfilecheck Info: File `bare_jrnl_transmag.out' has not changed.
 (rerunfilecheck)             Checksum: 412F7E3DB6F3CD799C549DBDAF982453.
 
@@ -915,15 +923,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 802.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 828.
  ) 
 Here is how much of TeX's memory you used:
- 25569 strings out of 492916
- 523303 string characters out of 6133346
- 599244 words of memory out of 5000000
- 29342 multiletter control sequences out of 15000+600000
+ 25610 strings out of 492916
+ 526007 string characters out of 6133346
+ 601244 words of memory out of 5000000
+ 29381 multiletter control sequences out of 15000+600000
  540614 words of font info for 104 fonts, out of 8000000 for 9000
  1351 hyphenation exceptions out of 8191
  56i,18n,74p,539b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bare_jrnl_transmag.xdv (5 pages, 95544 bytes).
+Output written on bare_jrnl_transmag.xdv (5 pages, 101272 bytes).
