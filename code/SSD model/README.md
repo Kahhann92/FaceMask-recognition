@@ -8,6 +8,7 @@ python 3.6
 pip install tensorflow-cpu==1.15    -i https://pypi.tuna.tsinghua.edu.cn/simple  
 pip install keras    -i https://pypi.tuna.tsinghua.edu.cn/simple  
 pip install python-opencv    -i https://pypi.tuna.tsinghua.edu.cn/simple  
+pip install -r requirements.txt
  
 ## 数据下载与整理
 AIZOO数据集 https://github.com/AIZOOTech/FaceMaskDetection  
