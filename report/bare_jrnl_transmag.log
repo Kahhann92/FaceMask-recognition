@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.9.4)  12 JUN 2020 02:08
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.9.4)  13 JUN 2020 09:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -842,34 +842,22 @@ Overfull \hbox (42.13304pt too wide) detected at line 502
 ]
 File: list.bmp Graphic file (type bmp)
 <list.bmp>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
 File: update.bmp Graphic file (type bmp)
 <update.bmp>
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 551--552
+Underfull \hbox (badness 10000) in paragraph at lines 556--557
 []\TU/lmr/m/n/10.53937 AIZOO \TU/FandolSong-Regular(0)/m/n/10.53937 的 \TU/lmr/m
 /n/10.53937 FaceMaskDetection \TU/FandolSong-Regular(0)/m/n/10.53937 数 据 集
  []
 
 
-Overfull \hbox (0.58649pt too wide) in paragraph at lines 551--552
+Overfull \hbox (0.58649pt too wide) in paragraph at lines 556--557
 |\TU/FandolSong-Regular(0)/m/n/10.53937 （\TU/lmr/m/n/10.53937 https://github.co
 m/AIZOOTech/FaceMaskDetection\TU/FandolSong-Regular(0)/m/n/10.53937 ）|
- []
-
-[2]
-Underfull \hbox (badness 3989) in paragraph at lines 553--554
-[]\TU/lmr/m/n/10.53937 Real-World Masked Face Dataset(RMFD) \TU/FandolSong-Regu
-lar(0)/m/n/10.53937 数
- []
-
-
-Underfull \hbox (badness 2384) in paragraph at lines 553--554
-\TU/FandolSong-Regular(0)/m/n/10.53937 据 集  |（\TU/lmr/m/n/10.53937 https://gith
-ub.com/X-zhangyang/Real-World-
  []
 
 File: Dataset.pdf Graphic file (type pdf)
@@ -878,12 +866,12 @@ File: Dataset.pdf Graphic file (type pdf)
 File: Ssdloss.pdf Graphic file (type pdf)
 <use Ssdloss.pdf>
 
-Overfull \hbox (63.45053pt too wide) in paragraph at lines 587--595
+Overfull \hbox (97.16624pt too wide) in paragraph at lines 594--609
  [] 
  []
 
 
-Underfull \hbox (badness 1748) in paragraph at lines 583--597
+Underfull \hbox (badness 1748) in paragraph at lines 590--611
 []\TU/FandolSong-Regular(0)/m/n/10.53937 下 表 中 展 示 各 个 模 型 每 个 类 别 的 \TU/lmr/m/
 n/10.53937 mAP@.5,
  []
@@ -893,21 +881,35 @@ File: ssdResult.bmp Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-File: modelgraph.pdf Graphic file (type pdf)
-<use modelgraph.pdf>
+File: FlResult.bmp Graphic file (type bmp)
+<FlResult.bmp>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 802.
-[4] [5
+File: Frcnn.bmp Graphic file (type bmp)
+<Frcnn.bmp>
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 802.
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: modelgraph.pdf Graphic file (type pdf)
+<use modelgraph.pdf>
+File: time.pdf Graphic file (type pdf)
+<use time.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 845.
+ [5] [6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 845.
  (./bare_jrnl_transmag.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 802.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 802.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 845.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 845.
 Package rerunfilecheck Info: File `bare_jrnl_transmag.out' has not changed.
-(rerunfilecheck)             Checksum: 412F7E3DB6F3CD799C549DBDAF982453.
+(rerunfilecheck)             Checksum: 44350FC53B199BAB71C3377BA99A52C1.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -915,15 +917,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 802.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 845.
  ) 
 Here is how much of TeX's memory you used:
- 25569 strings out of 492916
- 523303 string characters out of 6133346
- 599244 words of memory out of 5000000
- 29342 multiletter control sequences out of 15000+600000
+ 25652 strings out of 492916
+ 529150 string characters out of 6133346
+ 603371 words of memory out of 5000000
+ 29423 multiletter control sequences out of 15000+600000
  540614 words of font info for 104 fonts, out of 8000000 for 9000
  1351 hyphenation exceptions out of 8191
- 56i,18n,74p,539b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,18n,74p,539b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bare_jrnl_transmag.xdv (5 pages, 95544 bytes).
+Output written on bare_jrnl_transmag.xdv (6 pages, 121116 bytes).
