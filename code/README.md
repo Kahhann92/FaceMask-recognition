@@ -1,15 +1,34 @@
-# 各压缩包的作用
-– 按模块描述压缩包中每部分文件的作用。
+# Mask-Detection-Homework
 
-# 环境配置
-– 运行代码所需的软件环境和软件版本，并提供从裸的操作系统开始配置所需环境的命令。
+## SSD model 压缩文件
+其中为SSD模型的训练与测试所有代码，不包含训练数据。
 
-# 数据整理命令
-– 下载原始训练测试数据和整理数据的命令。
+## 环境配置
+python 3.6  
+pip install tensorflow-cpu==1.15    -i https://pypi.tuna.tsinghua.edu.cn/simple  
+pip install keras    -i https://pypi.tuna.tsinghua.edu.cn/simple  
+pip install python-opencv    -i https://pypi.tuna.tsinghua.edu.cn/simple  
+pip install -r requirements.txt
+ 
+## 数据下载与整理
+AIZOO数据集 https://github.com/AIZOOTech/FaceMaskDetection  
+其中包含train训练数据和val测试数据
+在`config/maskface.yaml`文件中，修改  
+trainset_path:  
+  '/Dataset/FaceMaskNew/train' [AIZOO数据集中train训练数据的路径]   
+valset_path:  
+  '/Dataset/FaceMaskNew/val'   [AIZOO数据集中val训练数据的路径]  
+为你的训练集和测试集路径  
 
-# 数据整理命令
-– 训练所提交的最优模型的命令。按此命令训练出的模型，不应当与提交的最优模型性能差异过大。
+## 训练模型
+cd 拖入SSD model文件夹  
+运行  
+python train.py  
+模型结构和训练好的模型参数存储在SSD model/models 中  
+已经将训练好的模型放入，只需测试即可得到测试结果。
 
-# 快速检测
-– 用上一步训练出来的模型在十张图片上测试的命令。
-– 用提交的最优模型在十张图片上测试的命令，以及预期的结果。
+## 测试图片
+将测试test-images/中的10张图片  
+运行  
+python test.py  
+得到测试结果将在原图中显示是否存在口罩。 
