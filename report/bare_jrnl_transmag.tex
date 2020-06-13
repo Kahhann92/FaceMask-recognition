@@ -435,7 +435,7 @@
 % in the abstract or keywords.
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-摘要
+摘要 \ 本文利目标检测深度学习技术检测对人脸口罩进行识别，构建了 3 种不同的模型，分别是一阶段的SSD以及二阶段的Faster RCNN以及Focal Loss，来做口罩目标的检测。同时也针对结果最优秀的Faster RCNN做了一个电脑摄像头的实时检测。
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -520,6 +520,11 @@ Fast R-CNN[4]指出R-CNN耗时的原因是CNN是在每一个Proposal上单独进
 图片经过feature extractor得到feature map, 同时在原图上运行Selective Search算法并将RoI（Region of Interset，实为坐标组，可与Region Proposal混用）映射到到feature map上，再对每个RoI进行RoI Pooling操作便得到等长的feature vector，将这些得到的feature vector进行正负样本的整理（保持一定的正负样本比例），分batch传入并行的R-CNN子网络，同时进行分类和回归，并将两者的损失统一起来。Fast R-CNN将Proposal, Feature Extractor, Object Classification和Localization统一在一个整体的结构中，并通过共享卷积计算提高特征利用效率。
 
 Faster R-CNN是2-stage方法的奠基性工作，提出的RPN网络取代Selective Search算法使得检测任务可以由神经网络端到端地完成。RPN网络将Proposal这一任务建模为二分类（是否为物体）的问题。第一步是在一个滑动窗口上生成不同大小和长宽比例的anchor box（如上图右边部分），取定IoU的阈值，按Ground Truth标定这些anchor box的正负。于是，传入RPN网络的样本数据被整理为anchor box（坐标）和每个anchor box是否有物体（二分类标签）。RPN网络将每个样本映射为一个概率值和四个坐标值，概率值反应这个anchor box有物体的概率，四个坐标值用于回归定义物体的位置。最后将二分类和坐标回归的损失统一起来，作为RPN网络的目标训练。由RPN得到Region Proposal在根据概率值筛选后经过类似的标记过程，被传入R-CNN子网络，进行多分类和坐标回归，同样用多任务损失将二者的损失联合。
+\subsubsection{Focal Loss}
+Focal Loss的模型，Facebook团队称之为Retinanet，是由Facebook团队研发出来的，其中来自广州的作者——何恺明，便曾经参与了Faster-RCNN模型的开发，所以也不难猜到这两个模型是有其相似性的，而实际上Focal Loss模型便是基于Faster-RCNN改进开发出来的。
+
+迄今为止，最高精度的目标检测模型是基于R-CNN普及的两阶段方法，它们同样是可以使用在高度稀疏的图像检测上的。相反的，如果应用在重复性高的采样，一阶段检测器可能会变得更快速简单，但到目前为止，它的精度已经落后于二阶段检测器。这是因为，在检测器密集的训练过程中，遇到了极端前景/背景类别的失衡问题。而Retinanet通过重塑标准交叉熵来解决此类不平衡问题，从而降低把权重分配给容易分类的示例的可能性。这是个在当时很富开创性的工作，它让模型能够把重点放在稀疏、困难的示例上，并防止在培训过程中，受到太多easy negative的影响。它的效能在当时是超越了Faster-RCNN的算法模型的，而且运算速度可以跟一阶段检测模型比拟，其准确度也比它们要高。
+
 
 \subsection{深度学习目标检测的发展}
 深度学习对目标检测的在经典的研究上不断发展，诞生了大量的工作。
@@ -535,7 +540,7 @@ Faster R-CNN是2-stage方法的奠基性工作，提出的RPN网络取代Selecti
 在这个基础上，一系列技术也得到了进步[5]：
 \begin{figure}[h]
 \centering
-\includegraphics[width=3.44in]{update.bmp}
+\includegraphics[width=2.6in]{update.bmp}
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
@@ -543,14 +548,12 @@ Faster R-CNN是2-stage方法的奠基性工作，提出的RPN网络取代Selecti
 \end{figure}
 
 \subsection{本文贡献}
-本文利目标检测深度学习技术检测对人脸口罩进行识别。本文构建了3种不同的模型分别是SSD、做口罩目标的检测，分别是SSD、Focal Loss Faster RCNN
+本文利目标检测深度学习技术检测对人脸口罩进行识别。本文构建了 3 种不同的模型，分别是一阶段的SSD以及二阶段的Faster RCNN以及Focal Loss，来做口罩目标的检测。同时也针对结果最优秀的Faster RCNN做了一个电脑摄像头的实时检测。
 
 \section{数据整理}
-采用数据为公开数据集：AIZOO 的 FaceMaskDetection和Real-World Masked Face Dataset(RMFD)。
+采用数据为公开数据集：AIZOO 的 FaceMaskDetection。
 
 AIZOO 的 FaceMaskDetection数据集（https://github.com/AIZOOTech/FaceMaskDetection）开源了人脸口罩检测的主流框架的相应模型，并提供了相应的推理代码。该作者开源了如表格所示 的 7,959 张人脸标注图片，数据集来自于 WIDER Face 和 MAFA 数据集, 并重新修改了标注和校验。
-
-Real-World Masked Face Dataset(RMFD)数据集（https://github.com/X-zhangyang/Real-World-Masked-Face-Dataset）为武汉大学国家多媒体软件工程技术研究中心收集和标注的口罩数据集 [7]。包含从网络爬取样本，经过整 理、清洗和标注后，含 525 人的 5 千张口罩人脸、9 万正常人脸。以及通过公开数据集中的人脸戴上口 罩，得到 1 万人、50 万张人脸的模拟口罩人脸数据集。
 
 我们使用的AIZOO数据集，可以发现该数据集有两类的数据，分别为口罩和非口罩人像，且数据相对平衡，数据集包含对每张照片的注释，注释信息包含图片的类别、目标的位置，该数据集适合作为训练与测试，该数据分布如下：
 \begin{figure}[h]
@@ -561,6 +564,10 @@ Real-World Masked Face Dataset(RMFD)数据集（https://github.com/X-zhangyang/R
 % via \DeclareGraphicsExtensions.
 \caption{数据集分布可视化}
 \end{figure}
+
+在把数据应用在模型训练之前，我们务必要搞清楚要使用的标签类别与格式。主要的标签类别有Bounding Boxes、Polygonal Segmentation、Semantic Segmentation以及3D cuboids，在此一模型我们想当然用的就是用得最广泛的Bounding boxes的格式，而刚好AIZOO的数据类型也是属于这一类。在数据标签格式方面的话，AIZOO是属于Pascal VOC的标签格式，而我们在SSD使用便是这一类型；在Faster RCNN以及Focal Loss则是采用了COCO的标签格式。之所以会采用两种不同的数据格式，这是因为考虑到原模型使用了这样的标签格式，为了避免成果相差太大，我们采用了符合原模型的数据类型。
+
+在数据整理的主要工作，便是要把Pascal VOC转换到COCO 。Pascal VOC格式是一个照片对应一个同名的xml文件，而COCO则是所有照片对应一个json文件。在转换过程中也有发现一些错字，比如face\_mask打成了face\_nask。在格式转换过程中，最大的难点在于原文件的数据格式并不一致，有者少了pascal voc的path的数据，有者则是没有图像大小的数据，而且数字序号并不统一，这些都是必须要解决的。毕竟COCO格式是在假定名称后面的数字序号是不重复的，因此可以直接通过序号来搜索资料。在转换过程中，统一把path的资料只留下图像的名称，序号也重新计算，格式转换是通过python完成，也一并附在参考代码里了。
 
 \section{模型设计}
 \subsection{SSD}
