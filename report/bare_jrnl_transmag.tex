@@ -647,7 +647,8 @@ SSD模型结构：
 % via \DeclareGraphicsExtensions.
 \caption{SSD网络结构}
 \end{figure}
-不同模型的检测时间不同，对测试集的所有图片进行测试，再进行平均发现：
+
+不同模型的检测时间不同，对测试集的所有图片进行测试，再进行平均可以发现SSD模型的检测时间最短，其次是Focal Loss，最长的是Faster RCNN：
 \begin{figure}[h]
 \centering
 \includegraphics[width=3.44in]{time.pdf}
@@ -658,11 +659,13 @@ SSD模型结构：
 \end{figure}
 
 \section{小组成员贡献}
+郑家瀚：
 
+姚非凡：
 \section{参考代码}
-
+见附件中。
 \section{结论}
-
+通过对口罩进行目标检测，发现三种模型的检测结果中，Faster RCNN的准确率最高，不仅如此，其对脸的目标检测也最优。时间上SSD最快，但对脸的目标检测最为不佳。
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
 
