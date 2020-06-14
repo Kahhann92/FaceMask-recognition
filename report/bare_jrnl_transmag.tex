@@ -731,7 +731,9 @@ $\gamma$ & $\alpha$ & $AP$ & $AP_{50}$ & $AP_{75}$\\ \hline
 \section{实验设计及结果}
 数据集将训练集分为训练样本和验证样本，并对测试集中的样本进行测试。
 
-下表中展示各个模型每个类别的 mAP@.5, mAP@.7, mAP@.9, mAP@[.5:.95]。
+AP(Average Precision)是指平均精准度，是对PR曲线上的Precision值求均值。对于pr曲线来说，我们使用积分来进行计算。在实际应用中，我们并不直接对该PR曲线进行计算，而是对PR曲线进行平滑处理。即对PR曲线上的每个点，Precision的值取该点右侧最大的Precision的值。我们使用PASCAL VOC 风格的 11 点插值法进行计算AP。Pascal VOC 2008中设置IoU的阈值为0.5，如果一个目标被重复检测，则置信度最高的为正样本，另一个为负样本。在平滑处理的PR曲线上，取横轴0-1的10等分点（包括断点共11个点）的Precision的值，计算其平均值为最终AP的值。
+
+下表中展示各个模型两个类别的在不同IoU取值下的平均AP，即mAP@.5, mAP@.7, mAP@.9, mAP@[.5:.95]。
 \begin{table}[!htbp]
 \small
 \caption{不同模型下的mAP}  
@@ -754,28 +756,39 @@ $Model$ & $Class$ & $\makecell*[c]{mAP \\ @.5}$ & $\makecell*[c]{mAP \\ @.7}$ & 
 \end{center}  
 \end{table}
 
+Precision其实就是在识别出来的图片中，True positives所占的比率：$$precision=\frac{t p}{t p+f p}=\frac{t p}{n}$$，
+其中的n代表的是(True positives + False positives)，也就是系统一共识别出来多少照片。Recall 是被正确识别出来的飞机个数与测试集中所有飞机的个数的比值：$$recall=\frac{t p}{t p+f n}$$，通常tp+fn在目标检测中指groundTruth中的真实目标数量。Precision 和 Recall最早是信息检索中的概念，用来评价一个信息检索系统的优劣。而在目标检测领域，假设我们有一组图片，里面有若干待检测的目标，Precision就代表我们模型检测出来的目标有多打比例是真正的目标物体，Recall就代表所有真实的目标有多大比例被我们的模型检测出来了。
+
+我们当然希望检测的结果P越高越好，R也越高越好，但事实上这两者在某些情况下是矛盾的。比如极端情况下，我们只检测出了一个结果，且是准确的，那么Precision就是100\%，但是Recall就很低；而如果我们把所有结果都返回，那么必然Recall必然很大，但是Precision很低。
+
+因此在不同的场合中需要自己判断希望P比较高还是R比较高。如果是做实验研究，可以绘制Precision-Recall曲线来帮助分析。以Recall值为横轴，Precision值为纵轴，我们就可以得到PR曲线。我们会发现，Precision与Recall的值呈现负相关，在局部区域会上下波动。\\
+
 SSD模型下IoU 阈值取 0.5, 0.7, 0.9 时每类的 Precision-Recall 曲线如下：
 \begin{figure}[h]
 \centering
-\includegraphics[width=3.44in]{ssdResult.bmp}
+\includegraphics[width=3.05in]{ssdResult.bmp}
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
 \caption{SSD模型的Precision-Recall 曲线（左侧从上到下分别是口罩目标检测在IoU=0.5、0.7、0.9时的Precision-Recall 曲线；右侧为脸目标检测。）}
 \end{figure}
 
+Focal Loss模型下IoU 阈值取 0.5, 0.7, 0.9 时每类的 Precision-Recall 曲线如下：
+
 \begin{figure}[h]
 \centering
-\includegraphics[width=3.44in]{FlResult.bmp}
+\includegraphics[width=3.05in]{FlResult.bmp}
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
 \caption{Focal Loss模型的Precision-Recall 曲线（左侧从上到下分别是口罩目标检测在IoU=0.5、0.7、0.9时的Precision-Recall 曲线；右侧为脸目标检测。）}
 \end{figure}
 
+Faster RCNN模型下IoU 阈值取 0.5, 0.7, 0.9 时每类的 Precision-Recall 曲线如下：
+
 \begin{figure}[h]
 \centering
-\includegraphics[width=3.44in]{Frcnn.bmp}
+\includegraphics[width=3.05in]{Frcnn.bmp}
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
@@ -783,30 +796,30 @@ SSD模型下IoU 阈值取 0.5, 0.7, 0.9 时每类的 Precision-Recall 曲线如�
 \end{figure}
 
 \section{实验结果分析}
-SSD模型结构：
-\begin{figure}[h]
-\centering
-\includegraphics[width=3.44in]{modelgraph.pdf}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{SSD网络结构}
-\end{figure}
-
 不同模型的检测时间不同，对测试集的所有图片进行测试，再进行平均可以发现SSD模型的检测时间最短，其次是Focal Loss，最长的是Faster RCNN：
 \begin{figure}[h]
 \centering
-\includegraphics[width=3.44in]{time.pdf}
+\includegraphics[width=3.5in]{time.pdf}
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
 \caption{不同模型检测的时间}
 \end{figure}
 
-\section{小组成员贡献}
-郑家瀚：
+SSD模型结构：
+\begin{figure}[h]
+\centering
+\includegraphics[width=3in]{modelgraph.pdf}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{SSD网络结构}
+\end{figure}
 
-姚非凡：
+\section{小组成员贡献}
+郑家瀚：Focal Loss模型 、Faster RCNN模型 、撰写报告 、数据分析 、实时监测系统
+
+姚非凡：SSD模型 、撰写报告 、数据分析
 \section{参考代码}
 见附件中。
 \section{结论}

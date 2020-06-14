@@ -1,10 +1,10 @@
 # Fdb version 3
-["xdvipdfmx"] 1592114173 "bare_jrnl_transmag.xdv" "bare_jrnl_transmag.pdf" "bare_jrnl_transmag" 1592114191
-  "bare_jrnl_transmag.xdv" 1592114173 170400 c0f6d60b86b854bffbb068dc05051b40 "xelatex"
+["xdvipdfmx"] 1592119443 "bare_jrnl_transmag.xdv" "bare_jrnl_transmag.pdf" "bare_jrnl_transmag" 1592119461
+  "bare_jrnl_transmag.xdv" 1592119443 187824 9e53aff19af4fb5918efb33386a6b751 "xelatex"
   (generated)
   "bare_jrnl_transmag.pdf"
-["xelatex"] 1592114171 "bare_jrnl_transmag.tex" "bare_jrnl_transmag.xdv" "bare_jrnl_transmag" 1592114191
-  "/dev/null" 1592114175 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1592119441 "bare_jrnl_transmag.tex" "bare_jrnl_transmag.xdv" "bare_jrnl_transmag" 1592119461
+  "/dev/null" 1592119460 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm" 1136768653 1804 7b5f73028f6509167f47ace9d69509ed ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm" 1136768653 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
@@ -108,9 +108,9 @@
   "b.png" 1592104741 194148 401b0e3e8cfb6bf4b226387f56195456 ""
   "b2.bmp" 1592098757 259957 2b06f52569a9db65b9d00b7d2dbc7d32 ""
   "bacc.png" 1592104611 58358 636f03e10274948dc302a54d44f07f41 ""
-  "bare_jrnl_transmag.aux" 1592114173 6692 03406fbfa69c4daa845ae871f7302c7a "xelatex"
-  "bare_jrnl_transmag.out" 1592114173 2239 05ccc134a39e7e54149003bcdefbeb15 "xelatex"
-  "bare_jrnl_transmag.tex" 1592114171 55806 4df2b22f6958967e151ac313907df8f0 ""
+  "bare_jrnl_transmag.aux" 1592119443 6692 9aae54fec088559d7d3f4b6ba31c78da "xelatex"
+  "bare_jrnl_transmag.out" 1592119443 2239 05ccc134a39e7e54149003bcdefbeb15 "xelatex"
+  "bare_jrnl_transmag.tex" 1592119440 58377 e8786b9546eff71a77a1564fa6a6ebbf ""
   "bloss.png" 1592104593 40460 44853353d8f5596dc72e3bc82617a88e ""
   "c.bmp" 1592099822 468278 707f4b4402ca6e5b85ee8f080ab3fad3 ""
   "closs.png" 1592105852 104812 fa3f0394428367fdde7caf0e4ac59f37 ""
@@ -121,6 +121,6 @@
   "update.bmp" 1591898002 37410492 09fdea179ab2508525e767d6ff23d7e9 ""
   (generated)
   "bare_jrnl_transmag.log"
+  "bare_jrnl_transmag.xdv"
   "bare_jrnl_transmag.aux"
   "bare_jrnl_transmag.out"
-  "bare_jrnl_transmag.xdv"
