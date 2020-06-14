@@ -3,6 +3,17 @@
 
 此一project是由清华大学医学院的林非凡与郑家瀚共同开发完成，这里运用了三个目标检测模型，来找到图像里的人脸，以及他们是否有带口罩，这一readme.md文件是为了帮助使用者如何正确使用我们的code。
 
+由于各模型的文件过于庞大，高达40MB，所以已上传到网盘上，请先在这里[下载](https://cloud.tsinghua.edu.cn/f/7d05f7e81d454291a706/?dl=1)，然后解压缩在code的文件夹里头。
+文件夹的排法请务必根据一下方式进行整理：
+
+| FaceMask-recognition/ | codes/     | mAP/             |
+|                       | report.pdf | requirements.txt |
+|                       |            | README.md        |
+|                       |            | Faster-RCNN/     |
+|                       |            | Focal-Loss/      |
+|                       |            | SSD model/       |
+
+
 下面介绍一下主要的几个子文件夹。  
 
 ## SSD model
