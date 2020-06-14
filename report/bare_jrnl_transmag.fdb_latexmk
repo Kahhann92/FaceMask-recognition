@@ -1,10 +1,10 @@
 # Fdb version 3
-["xdvipdfmx"] 1592119880 "bare_jrnl_transmag.xdv" "bare_jrnl_transmag.pdf" "bare_jrnl_transmag" 1592119898
-  "bare_jrnl_transmag.xdv" 1592119880 188020 8ca83f599c52d9a0da620003c9c10c43 "xelatex"
+["xdvipdfmx"] 1592139322 "bare_jrnl_transmag.xdv" "bare_jrnl_transmag.pdf" "bare_jrnl_transmag" 1592139692
+  "bare_jrnl_transmag.xdv" 1592139322 229084 a98cc97646f1cedb34182d660501d937 "xelatex"
   (generated)
   "bare_jrnl_transmag.pdf"
-["xelatex"] 1592119878 "bare_jrnl_transmag.tex" "bare_jrnl_transmag.xdv" "bare_jrnl_transmag" 1592119898
-  "/dev/null" 1592119897 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1592139320 "bare_jrnl_transmag.tex" "bare_jrnl_transmag.xdv" "bare_jrnl_transmag" 1592139692
+  "/dev/null" 1592139692 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm" 1136768653 1804 7b5f73028f6509167f47ace9d69509ed ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm" 1136768653 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
@@ -108,12 +108,13 @@
   "b.png" 1592104741 194148 401b0e3e8cfb6bf4b226387f56195456 ""
   "b2.bmp" 1592098757 259957 2b06f52569a9db65b9d00b7d2dbc7d32 ""
   "bacc.png" 1592104611 58358 636f03e10274948dc302a54d44f07f41 ""
-  "bare_jrnl_transmag.aux" 1592119880 6692 535f9654ae79c81ab3ec26e5beee70a6 "xelatex"
-  "bare_jrnl_transmag.out" 1592119880 2239 05ccc134a39e7e54149003bcdefbeb15 "xelatex"
-  "bare_jrnl_transmag.tex" 1592119877 58395 eba52520652970218d457b6390f4e929 ""
+  "bare_jrnl_transmag.aux" 1592139322 6828 f3751d10b84a87716b720dd8d1ef827a "xelatex"
+  "bare_jrnl_transmag.out" 1592139322 2239 05ccc134a39e7e54149003bcdefbeb15 "xelatex"
+  "bare_jrnl_transmag.tex" 1592139692 64958 baf1eeb1092d5ec34d8fe74c2e1ea302 ""
   "bloss.png" 1592104593 40460 44853353d8f5596dc72e3bc82617a88e ""
   "c.bmp" 1592099822 468278 707f4b4402ca6e5b85ee8f080ab3fad3 ""
   "closs.png" 1592105852 104812 fa3f0394428367fdde7caf0e4ac59f37 ""
+  "discuss.png" 1592138065 111518 a56401d1b770fe38ff4201e48d194b6c ""
   "list.bmp" 1591025204 73145 14936dc16f5502ad35f0d5703655341c ""
   "modelgraph.pdf" 1591432763 26701 155e960352fa0926e1d531ef008296fd ""
   "ssdResult.bmp" 1591953128 45734540 16f41dad231c4248e4e2fb5e005ec910 ""
@@ -121,6 +122,6 @@
   "update.bmp" 1591898002 37410492 09fdea179ab2508525e767d6ff23d7e9 ""
   (generated)
   "bare_jrnl_transmag.log"
-  "bare_jrnl_transmag.aux"
   "bare_jrnl_transmag.xdv"
+  "bare_jrnl_transmag.aux"
   "bare_jrnl_transmag.out"

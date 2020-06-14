@@ -388,7 +388,7 @@
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
 % Do not put math or special symbols in the title.
-\title{人脸口罩检测}
+\title{单阶段vs二阶段——人脸口罩的目标检测}
 
 
 
@@ -436,7 +436,8 @@
 % in the abstract or keywords.
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-摘要 \ 本文利目标检测深度学习技术检测对人脸口罩进行识别，构建了 3 种不同的模型，分别是一阶段的SSD以及二阶段的Faster RCNN以及Focal Loss，来做口罩目标的检测。同时也针对结果最优秀的Faster RCNN做了一个电脑摄像头的实时检测。
+摘要 \ 本文利目标检测深度学习技术检测对人脸口罩进行识别，构建了 3 种不同的模型，分别是一阶段的SSD以及二阶段的Faster RCNN以及Focal Loss，来做口罩目标的检测。同时也针对结果最优秀的Faster RCNN做了一个电脑摄像头的实时检测。我们也发现，各个模型都有它们倾向专注的点，也各有自己的盲点，一阶段模型如SSD虽然很快，但存在一些结构性问题，导致它在mAP上无法突破；虽然Focal Loss的出现后于Faster RCNN，但是在经过改进以后，整体效能上更优于Focal Loss模型。三个模型都很好地完成了目标检测的基本效能，是能够在真实世界里派得上用场的目标检测模型。
+
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -605,7 +606,7 @@ Real-World Masked Face Dataset(RMFD) 数 据 集 (https://github.com/X-zhangyang
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
-\caption{数据集分布可视化}
+\caption{AIZOO数据集分布可视化}
 \end{figure}
 
 在把数据应用在模型训练之前，我们务必要搞清楚要使用的标签类别与格式。主要的标签类别有Bounding Boxes、Polygonal Segmentation、Semantic Segmentation以及3D cuboids，在此一模型我们想当然用的就是用得最广泛的Bounding boxes的格式，而刚好AIZOO的数据类型也是属于这一类。在数据标签格式方面的话，AIZOO是属于Pascal VOC的标签格式，而我们在SSD使用便是这一类型；在Faster RCNN以及Focal Loss则是采用了COCO的标签格式。之所以会采用两种不同的数据格式，这是因为考虑到原模型使用了这样的标签格式，为了避免成果相差太大，我们采用了符合原模型的数据类型。
@@ -653,7 +654,7 @@ Real-World Masked Face Dataset(RMFD) 数 据 集 (https://github.com/X-zhangyang
 
 我们在此次的模型设计上便是采用了这样FPN的模型，faster rcnn R 50 FPN 3x，意即在RPN阶段，只提供50个proposals，这将使得此模型比原模型快三倍。
 
-在训练过程中，我们依照Total Loss以及判断正确率来判断模型是否已经足够收敛。
+在训练过程中，我们依照Total Loss以及判断正确率来判断模型是否已经足够收敛：
 \begin{figure}[h]
 \centering
 \includegraphics[width=3.44in]{bloss.png}
@@ -672,7 +673,7 @@ Real-World Masked Face Dataset(RMFD) 数 据 集 (https://github.com/X-zhangyang
 \caption{Class Accuracy of Faster-RCNN while training}
 \end{figure}
 
-从上图我们可以观察到，在训练了10000次回圈判以后，Total Loss已经不再下降，断准确率也已经渐趋平衡，因此我们判断10000次就已经很足够。
+从上图我们可以观察到，在训练了10000次回圈判以后，Total Loss已经不再下降，判断准确率也已经渐趋平衡，因此我们判断10000次就已经很足够。
 
 经过一些测试，我们判断当ROI\_HEADS的SCORE\_THRESH\_TEST的阈值设定为0.7的时候，效果就足够好，连用花盖着脸的女孩的图像都能很好地检测到:
 
@@ -684,7 +685,6 @@ Real-World Masked Face Dataset(RMFD) 数 据 集 (https://github.com/X-zhangyang
 % via \DeclareGraphicsExtensions.
 \caption{Class Accuracy of Faster-RCNN while training}
 \end{figure}
-
 
 \subsection{Focal Loss}
 \begin{figure}[h]
@@ -816,14 +816,43 @@ SSD模型结构：
 \caption{SSD网络结构}
 \end{figure}
 
+综合前面的结果，要回答哪一个是最好的模型这一问题的话，我们就要看看模型的平均运算速度，以及它们的各种准确度。我们可以看到SSD是目标检测最快速的模型，这正符合了我们对单阶段模型的预测，属于二阶段的Faster RCNN则拥有最高的整体准确度，而同属二阶段的Focal Loss，却只是在平均准确度略胜于SSD。因此最快的是SSD，而最准确的则是Faster RCNN，在回答“哪一个是最好的模型”这一问题以前，我们先来深入分析一下前面的结果。
+
+首先，我们来看看各个模型、各个判别、各个IoU阈值的Precision-Recall curve，可以看到SSD比较其他的模型，在Mask的检测上，在开头（左边）的时候都有比较尖锐的下坠，这其实可以说明一件事，就是SSD在最有信心的时候会犯错，而这想当然的不是一个好现象。我们知道，在作PR curve的时候，会先把判别的confidence——信心，进行排序，最有信心的结果会先在PR curve的左边出现，从左到右画完，所以在最左方的就是最有信心的，而SSD在最有信心的部分却屡屡犯错，导致前面有尖锐的下坠。我们找到如下面的这个例子，SSD很有信心地把用花盖脸的女孩判断成了戴口罩的女孩，而且信心度达0.96，如下：
+\begin{figure}[h]
+\centering
+\includegraphics[width=3in]{discuss.png}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Another example}
+\end{figure}
+
+模型在最有自信的时候应当是最准确的，而在SSD却成了最容易犯错的时候，这说明了SSD在学习过程中，有了错误的学习方向，而这可能与过学习有关。这很难说是学习时间不够久的原因，毕竟在最后损失函数也渐趋平衡，也已经所剩无几了。我们估计是模型对于极端数据较不敏感，再来是极端数据本来就占少数，在SSD的情况，可能需要更多的Hard Negative的极端数据才能有更好的训练结果。
+
+尽管SSD会有这样的问题，但是它在人脸的识别上却是非常杰出的，在IoU=0.5的时候，甚至是比其他两个还要好的，这说明了两个可能性，一是这一模型在掌握人脸的学习上是比较全面的，二则是这一模型的classifier更倾向于把物体判成人脸。综合在Mask的表现，我们推测二的可能性会更大。在IoU=0.5的时候，整个准确率都倾向了人脸的部分，因此我们可以判段SSD的classifier的学习不比其他两个模型优秀，它是更加偏重了人脸的判别的。
+
+延续我们前面的问题，关于“有信心的时候会犯错”的问题上，Focal Loss以及Faster RCNN则是比较克制，它们不相伯仲，都很优秀。这因此可能是二阶段模型的一个特点，它把“物体在哪里”和“物体是什么”，两个问题前后分开，有两个阶段的损失函数来对他们进行修正，因此比较一阶段模型，会比较少出现这种“满招损，谦受益”的现象。
+
+这里在说尽了SSD的坏话以后，要说点SSD的好话。在IoU阈值高达0.9的时候，二阶段的两个模型都表现了失衡的状态，Focal Loss更倾向把数据判断成口罩，而Faster RCNN则更倾向把数据判断成无口罩，唯独SSD是比较平均的，这也说明SSD在“在哪里”的问题是比其他的两个模型学习得比较全面的。
+
+Faster RCNN在IoU=0.9的严峻情况下，虽然有点不平衡，但是它的整体准确率是远高于其他两个模型的，这也说明了Faster RCNN在严酷的要求下，它的效能是更优于其他两个模型的。它在学习“在哪里”的问题上因此是比其他两个模型来得更优秀的，这不得不说这可真是Facebook团队的杰出之作，他们本来是用各方面性能都比较优秀的Focal Loss的RetinaNet打败了Faster RCNN，却在随着研发的推进，把Faster RCNN改良成比原初的RetinaNet来得更加优秀。
+
+此外，依照Focal Loss的论文，说是损失函数的BP会更多地着重在改善Hard Negative的分类，那具体我们可以从哪儿看到这个方向的改进呢？那我们可以看看在IoU=0.5的时候，PR图的右边方向的部分是更加饱满的，是不会掉得那么快的，这就说明了在模型自信比较低的时候，正确率还是有所保障的，上面当然说的是对比SSD的，SSD在自信比较低的时候，准确率都掉得比较快。
+
+综上所述，我们可以清楚地说明一个问题，也就是二阶段在整体准确率上是更胜于一阶段模型的，这主要源自于模型结构性的限制。一阶段模型因为倾向于更简洁的架构而导致学习会面临一些缺陷，这个缺陷在二阶段模型都可以比较好的解决。所以要回答哪个模型是最好的模型的问题，我想现在就可以回答了，那就是Faster RCNN，除了因为它在整体准确率上是更优于其他模型，它也可以更好地解决一些难分辨的问题。
+
 \section{小组成员贡献}
 郑家瀚：Focal Loss模型 、Faster RCNN模型 、撰写报告 、数据分析 、实时监测系统
 
-姚非凡：SSD模型 、撰写报告 、数据分析
+姚非凡：SSD模型 、撰写报告 、各模型的mAP运算、数据分析
 \section{参考代码}
 见附件中。
 \section{结论}
-通过对口罩进行目标检测，发现三种模型的检测结果中，Faster RCNN的准确率最高，不仅如此，其对脸的目标检测也最优。时间上SSD最快，但对脸的目标检测最为不佳。
+一阶段模型如SSD虽然很快，但存在一些结构性问题，导致它在mAP上无法突破。此外，虽然Focal Loss的出现后于Faster RCNN，但是在经过改进以后，整体效能上更优于Focal Loss模型。我们也发现，各个模型都有它们倾向专注的点，也各有自己的盲点，其实三个模型都很好地完成了目标检测的基本效能，是能够在真实世界里派得上用场的目标检测模型。
+
+经过这次的实验，我们也成了计算机视觉的半个内行人，在自动驾驶的战场上，我们看到有以google为首的Waymo公司与马斯克的特斯拉公司的战疫，前者是依靠多个传感器，比如测距、GPS、红外线等等回馈系统以求达到实时的自动驾驶，而后者则是为了兼顾美观以及科技感，摒除了所有这些传感器，只使用了GPS以及视觉来作实时的回馈，来做到自动驾驶。在经过这次的深入实验以后，我决定站在马斯克这一方，计算机视觉也许还有很长的路要走，但是绝对可行。
+
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
 
