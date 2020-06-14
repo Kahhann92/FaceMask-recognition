@@ -6,12 +6,13 @@
 由于各模型的文件过于庞大，高达40MB，所以已上传到网盘上，请先在这里[下载](https://cloud.tsinghua.edu.cn/f/7d05f7e81d454291a706/?dl=1)，然后解压缩在code的文件夹里头。
 文件夹的排法请务必根据一下方式进行整理：
 
-| FaceMask-recognition/ | codes/     | mAP/             |
-|                       | report.pdf | requirements.txt |
-|                       |            | README.md        |
-|                       |            | Faster-RCNN/     |
-|                       |            | Focal-Loss/      |
-|                       |            | SSD model/       |
+| FaceMask-recognition/ | codes/ | mAP/ |
+|-|-|-|
+|  | report.pdf | requirements.txt |
+|  |  | README.md |
+|  |  | Faster-RCNN/ |
+|  |  | Focal-Loss/ |
+|  |  | SSD model/ |
 
 
 下面介绍一下主要的几个子文件夹。  
