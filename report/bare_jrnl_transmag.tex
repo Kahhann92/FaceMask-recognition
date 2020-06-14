@@ -388,7 +388,7 @@
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
 % Do not put math or special symbols in the title.
-\title{人脸口罩检测}
+\title{单阶段vs二阶段——人脸口罩的目标检测}
 
 
 
@@ -436,7 +436,8 @@
 % in the abstract or keywords.
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-摘要 \ 本文利目标检测深度学习技术检测对人脸口罩进行识别，构建了 3 种不同的模型，分别是一阶段的SSD以及二阶段的Faster RCNN以及Focal Loss，来做口罩目标的检测。同时也针对结果最优秀的Faster RCNN做了一个电脑摄像头的实时检测。
+摘要 \ 本文利目标检测深度学习技术检测对人脸口罩进行识别，构建了 3 种不同的模型，分别是一阶段的SSD以及二阶段的Faster RCNN以及Focal Loss，来做口罩目标的检测。同时也针对结果最优秀的Faster RCNN做了一个电脑摄像头的实时检测。我们也发现，各个模型都有它们倾向专注的点，也各有自己的盲点，一阶段模型如SSD虽然很快，但存在一些结构性问题，导致它在mAP上无法突破；虽然Focal Loss的出现后于Faster RCNN，但是在经过改进以后，整体效能上更优于Focal Loss模型。三个模型都很好地完成了目标检测的基本效能，是能够在真实世界里派得上用场的目标检测模型。
+
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -605,7 +606,7 @@ Real-World Masked Face Dataset(RMFD) 数 据 集 (https://github.com/X-zhangyang
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
-\caption{数据集分布可视化}
+\caption{AIZOO数据集分布可视化}
 \end{figure}
 
 在把数据应用在模型训练之前，我们务必要搞清楚要使用的标签类别与格式。主要的标签类别有Bounding Boxes、Polygonal Segmentation、Semantic Segmentation以及3D cuboids，在此一模型我们想当然用的就是用得最广泛的Bounding boxes的格式，而刚好AIZOO的数据类型也是属于这一类。在数据标签格式方面的话，AIZOO是属于Pascal VOC的标签格式，而我们在SSD使用便是这一类型；在Faster RCNN以及Focal Loss则是采用了COCO的标签格式。之所以会采用两种不同的数据格式，这是因为考虑到原模型使用了这样的标签格式，为了避免成果相差太大，我们采用了符合原模型的数据类型。
@@ -653,7 +654,7 @@ Real-World Masked Face Dataset(RMFD) 数 据 集 (https://github.com/X-zhangyang
 
 我们在此次的模型设计上便是采用了这样FPN的模型，faster rcnn R 50 FPN 3x，意即在RPN阶段，只提供50个proposals，这将使得此模型比原模型快三倍。
 
-在训练过程中，我们依照Total Loss以及判断正确率来判断模型是否已经足够收敛。
+在训练过程中，我们依照Total Loss以及判断正确率来判断模型是否已经足够收敛：
 \begin{figure}[h]
 \centering
 \includegraphics[width=3.44in]{bloss.png}
@@ -672,7 +673,7 @@ Real-World Masked Face Dataset(RMFD) 数 据 集 (https://github.com/X-zhangyang
 \caption{Class Accuracy of Faster-RCNN while training}
 \end{figure}
 
-从上图我们可以观察到，在训练了10000次回圈判以后，Total Loss已经不再下降，断准确率也已经渐趋平衡，因此我们判断10000次就已经很足够。
+从上图我们可以观察到，在训练了10000次回圈判以后，Total Loss已经不再下降，判断准确率也已经渐趋平衡，因此我们判断10000次就已经很足够。
 
 经过一些测试，我们判断当ROI\_HEADS的SCORE\_THRESH\_TEST的阈值设定为0.7的时候，效果就足够好，连用花盖着脸的女孩的图像都能很好地检测到:
 
@@ -684,7 +685,6 @@ Real-World Masked Face Dataset(RMFD) 数 据 集 (https://github.com/X-zhangyang
 % via \DeclareGraphicsExtensions.
 \caption{Class Accuracy of Faster-RCNN while training}
 \end{figure}
-
 
 \subsection{Focal Loss}
 \begin{figure}[h]
