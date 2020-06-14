@@ -263,3 +263,4 @@ or
 ## 摄像头实时监测
 
 可使用google colab运行webcam_with_Faster_RCNN.ipynb，请点击此[链接](https://colab.research.google.com/drive/1zNjPg_udwPuF-nr4-sEgAZLLjkVVcGeb?usp=sharing)，会连接到我们的google云盘的google colab文件，即可逐步运行。
+
