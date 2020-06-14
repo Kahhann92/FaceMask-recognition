@@ -28,7 +28,7 @@ anchors_exp = np.expand_dims(anchors, axis=0)
 id2class = {0: 'Mask', 1: 'NoMask'}
 
 def inference(image,
-              conf_thresh=0.15,
+              conf_thresh=0.5,
               iou_thresh=0.3,
               target_shape=(160, 160),
               draw_result=True,
@@ -129,7 +129,7 @@ if __name__ == "__main__":
                 thetime.append(time.time()-t)
                 print(output_info)
 
-            file = open('./detection/'+imgName+'.txt', 'w')
+            file = open('../mAP/samples/test10/detection/'+imgName+'.txt', 'w')
             for i in range(len(output_info)):
                 s = str(output_info[i]).replace('{', '').replace('}', '').replace("'", '').replace(':', ',').replace('[', '').replace(']', '').replace(',', '') + '\n'
                 file.write(s)
