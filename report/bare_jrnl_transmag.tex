@@ -82,6 +82,7 @@
 \usepackage{listings}
 \usepackage{multirow}
 \usepackage{makecell}
+\usepackage{bbding}
 %
 % If IEEEtran.cls has not been installed into the LaTeX system files,
 % manually specify the path to it like:
@@ -394,7 +395,7 @@
 % author names and affiliations
 % transmag papers use the long conference author name format.
 
-\author{郑家瀚 2019 医学院 \ 生物医学工程 \ @mails.tsinghua.edu.cn\\
+\author{郑家瀚 2019280627 医学院 \ 生物医学工程 \ zheng-jh19@mails.tsinghua.edu.cn\\
 姚非凡 2019312571 医学院 \ 生物医学工程\ yff19@mails.tsinghua.edu.cn}% <-this % stops an unwanted space
 % \thanks{Manuscript received December 1, 2012; revised December 27, 2012. 
 % Corresponding author: M. Shell (email: http://www.michaelshell.org/contact.html).}}
@@ -551,9 +552,51 @@ Focal Loss的模型，Facebook团队称之为Retinanet，是由Facebook团队研
 本文利目标检测深度学习技术检测对人脸口罩进行识别。本文构建了 3 种不同的模型，分别是一阶段的SSD以及二阶段的Faster RCNN以及Focal Loss，来做口罩目标的检测。同时也针对结果最优秀的Faster RCNN做了一个电脑摄像头的实时检测。
 
 \section{数据整理}
-采用数据为公开数据集：AIZOO 的 FaceMaskDetection。
+我们对根据助教所提供的线索，即三大类（AIZOO、RMFD、Chan Chi Choi）来源的数据，进行了整理分类，作了表格如下：
+\begin{table}[!htbp]
+\tiny
+\caption{数据集整理}  
+\begin{center}  
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}  
+\hline
+$Dataset$ & $Name$ & $Syn$ & $Mask$ & $No—Mask$ & $Pos$ & $label$ & $P.format$ & $L.format$ \\ \hline
+\multirow{2}{*}{\makecell*[c]{AIZOO}}
+& \makecell*[c]{Trainset} & \makecell*[c]{\XSolid} & \makecell*[c]{3006} & \makecell*[c]{3114} & \makecell*[c]{\Checkmark} & \makecell*[c]{\Checkmark} & \makecell*[c]{.jpg} & \makecell*[c]{.xml}\\ \cline{2-9}
+
+& \makecell*[c]{Testset} & \makecell*[c]{\XSolid} & \makecell*[c]{1059} & \makecell*[c]{780} & \makecell*[c]{\Checkmark} & \makecell*[c]{\Checkmark} & \makecell*[c]{.jpg \ .png} & \makecell*[c]{.xml}\\ \hline
+
+\multirow{6}{*}{\makecell*[c]{RMFD}}
+
+& \makecell*[c]{RWMFD \\ \_part\\ \_1} & \makecell*[c]{\XSolid} & \makecell*[c]{1000} & \makecell*[c]{0} & \makecell*[c]{\Checkmark} & \makecell*[c]{\XSolid} & \makecell*[c]{.jpg} & \makecell*[c]{\XSolid}\\ \cline{2-9}
+
+& \makecell*[c]{single2-0} & \makecell*[c]{\XSolid} & \makecell*[c]{336} & \makecell*[c]{0} & \makecell*[c]{\Checkmark} & \makecell*[c]{\XSolid} & \makecell*[c]{.jpg} & \makecell*[c]{\XSolid}\\ \cline{2-9}
+
+& \makecell*[c]{single2-0\\-1} & \makecell*[c]{\XSolid} & \makecell*[c]{188} & \makecell*[c]{0} & \makecell*[c]{\Checkmark} & \makecell*[c]{\XSolid} & \makecell*[c]{.jpg \ .webp \\ .png .jpeg \\ .jfif} & \makecell*[c]{\XSolid}\\ \cline{2-9}
+
+& \makecell*[c]{self-built\\-masked\\-face\\-recognition\\-dataset} & \makecell*[c]{\XSolid} & \makecell*[c]{2203} & \makecell*[c]{90000} & \makecell*[c]{\XSolid} & \makecell*[c]{\XSolid} & \makecell*[c]{.jpg} & \makecell*[c]{\XSolid}\\ \cline{2-9}
+
+& \makecell*[c]{CASIA\\-WebFace\\ \_masked} & \makecell*[c]{\Checkmark} & \makecell*[c]{500000} & \makecell*[c]{0} & \makecell*[c]{\XSolid} & \makecell*[c]{\XSolid} & \makecell*[c]{.jpg} & \makecell*[c]{\XSolid}\\ \cline{2-3} \cline{5-9}
+
+& \makecell*[c]{lfw\\ \_masked} & \makecell*[c]{\Checkmark} & & \makecell*[c]{0} & \makecell*[c]{\XSolid} & \makecell*[c]{\XSolid} & \makecell*[c]{.jpg} & \makecell*[c]{\XSolid}\\ \hline
+
+\multirow{3}{*}{\makecell*[c]{Chan \\ Chi \\Choi }}
+
+& \makecell*[c]{MALF} & \makecell*[c]{\XSolid} &\makecell*[c]{0} & \makecell*[c]{5250} & \makecell*[c]{\Checkmark} & \makecell*[c]{\Checkmark|\XSolid} & \makecell*[c]{.jpg} & \makecell*[c]{.txt}\\ \cline{2-9}
+
+& \makecell*[c]{FDDB} & \makecell*[c]{\XSolid} &\makecell*[c]{0} & \makecell*[c]{2845} & \makecell*[c]{\Checkmark} & \makecell*[c]{\Checkmark} & \makecell*[c]{.jpg} & \makecell*[c]{.txt}\\ \cline{2-9}
+
+& \makecell*[c]{Wider \\ Face} & \makecell*[c]{\XSolid} &\makecell*[c]{0} & \makecell*[c]{33203} & \makecell*[c]{\Checkmark} & \makecell*[c]{\XSolid} & \makecell*[c]{.jpg} & \makecell*[c]{\XSolid}\\ \hline
+\end{tabular}  
+\end{center}  
+\end{table}
+
+Chan Chi Choi是在github上的介绍的数据集，我们也一并下载进行了分析。首先我们先得搞清楚要训练的模型是需要什么样的数据，他们的标签需求又是如何的？简言之，在这个目标检测的问题中，神经网络要学习的大体有二，一是“在哪里”的问题，二是“这是什么”的问题，意即我们的数据集必须要能提供给模型一些位置检测的讯息以及对应此位置是否有戴口罩的讯息，以便让模型能够进行反馈训练。
 
 AIZOO 的 FaceMaskDetection数据集（https://github.com/AIZOOTech/FaceMaskDetection）开源了人脸口罩检测的主流框架的相应模型，并提供了相应的推理代码。该作者开源了如表格所示 的 7,959 张人脸标注图片，数据集来自于 WIDER Face 和 MAFA 数据集, 并重新修改了标注和校验。
+
+Real-World Masked Face Dataset(RMFD) 数 据 集 (https://github.com/X-zhangyang/Real-World- Masked-Face-Dataset)为武汉大学国家多媒体软件工 程技术研究中心收集和标注的口罩数据集。包含从 网络爬取样本，经过整理、清洗和标注后，含 525 人的 5 千张口罩人脸、9 万正常人脸。以及通过公开数据集 中的人脸戴上口罩，得到 1 万人、50 万张人脸的模拟口罩人脸数据集。
+
+综上所述，AIZOO以及FDDB都比较适合我们来使用，毕竟他们的标签讯息比较完善，而且数据集的设计便是用来解决“在哪里”以及“这是什么”的问题。其他数据集像是RMFD的有的照片只能用来解决“这是什么”的问题，而缺乏了“在哪里” 的问题。为了保证数据不平衡问题不会发生，我们便采用了有戴口罩、没戴口罩数量比较平均的AIZOO数据集。
 
 我们使用的AIZOO数据集，可以发现该数据集有两类的数据，分别为口罩和非口罩人像，且数据相对平衡，数据集包含对每张照片的注释，注释信息包含图片的类别、目标的位置，该数据集适合作为训练与测试，该数据分布如下：
 \begin{figure}[h]
@@ -584,53 +627,168 @@ AIZOO 的 FaceMaskDetection数据集（https://github.com/AIZOOTech/FaceMaskDete
 % via \DeclareGraphicsExtensions.
 \caption{数据集分布可视化}
 \end{figure}
+
+\subsection{Faster RCNN}
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.44in]{B.bmp}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Faster RCNN的基本示意图}
+\end{figure}
+
+在前面有提过这个是二阶段的目标检测模型，前一阶段是RPN也就是寻找位置的模型，它会提出一些可能的格子提供给下一阶段的模型进行分类判断，此处是全连接。从前一阶段到后一阶段是循序渐进，前后可谓泾渭分明的。这是一种Single Feature Map的方法。
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.44in]{b2.bmp}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Feature Pyramid Network}
+\end{figure}
+
+在调研后，我们发现在近期，比较多人改用开始改用 Feature Pyramid Network的方法，这是后期Facebook团队在Retinanet开始使用的方法。这个是很富开创性的，它不仅使得训练很快速，在效能也是更准确的。这是因为它把这二阶段的方法，在第一阶段每一次特征提取的时候，也往第二阶段的predict层做连接，这其实也使得，二阶段的方法趋向于一阶段了。
+
+我们在此次的模型设计上便是采用了这样FPN的模型，faster rcnn R 50 FPN 3x，意即在RPN阶段，只提供50个proposals，这将使得此模型比原模型快三倍。
+
+在训练过程中，我们依照Total Loss以及判断正确率来判断模型是否已经足够收敛。
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.44in]{bloss.png}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Total Loss of Faster-RCNN while training}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.44in]{bacc.png}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Class Accuracy of Faster-RCNN while training}
+\end{figure}
+
+从上图我们可以观察到，在训练了10000次回圈判以后，Total Loss已经不再下降，断准确率也已经渐趋平衡，因此我们判断10000次就已经很足够。
+
+经过一些测试，我们判断当ROI\_HEADS的SCORE\_THRESH\_TEST的阈值设定为0.7的时候，效果就足够好，连用花盖着脸的女孩的图像都能很好地检测到:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3in]{b.png}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Class Accuracy of Faster-RCNN while training}
+\end{figure}
+
+
+\subsection{Focal Loss}
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.44in]{c.bmp}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{An example}
+\end{figure}
+
+Focal Loss的方法跟前面的Faster RCNN是很像的，也是第一次比起Faster RCNN首先使用FPN方法的模型。我们在这里使用的是Retinanet R 50 FPN 1x，同样的我们认为，对于我们这一次作业的要求，50个Proposals就已经非常足够。毕竟照片的人脸数量比较常见的都是一两个，最多也就十几个，因此把模型训练好的话，我们就可以很好的达标了。
+
+\begin{table}[!htbp]
+\small
+\caption{不同参数下的AP}  
+\begin{center}  
+\begin{tabular}{|l|l|l|l|l|}  
+\hline
+$\gamma$ & $\alpha$ & $AP$ & $AP_{50}$ & $AP_{75}$\\ \hline
+0 & 0.75 & 31.1 & 49.4 & 30.0\\ \hline
+0.1 & 0.75 & 31.4 & 49.9 & 30.1\\ \hline
+0.2 & 0.75 & 31.9 & 50.7 & 33.4\\ \hline
+0.5 & 0.5 & 32.9 & 51.7 & 35.2\\ \hline
+1 & 0.25 & 33.7 & 52.0 & 36.2\\ \hline
+2 & 0.25 & {\color{red}{34.0}} & {\color{red}{52.5}} & {\color{red}{36.5}}\\ \hline
+5 & 0.25 & 32.2 & 49.6 & 34.8\\ \hline
+\end{tabular}  
+\end{center}  
+\end{table}
+
+我们模型的参数，是使用了论文里最优秀的参数，也就是gamma为2.0，alpha为0.25。Focal Loss的损失函数会曲线会比较特别，毕竟是对损失函数作了次方的乘积，在比较难分类的图片上，函数就会变得比较重，变相让BP的权重分配分量更多。下图是我们的损失函数的曲线：
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.44in]{closs.png}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Total Loss of Focal Loss}
+\end{figure}
+
+可以看到在20000的训练回圈里，尽管熵函数是不稳定、上上下下的，但总的来说还是有下降趋势的，也因此可以判断是达到了判断的效果。但是这个趋势比起前面的Faster RCNN来的要慢，因此我们也让它有较长的训练时间，这里总共花了近三个半小时，才完成了20000的训练次数，因此，要训练这一模型是挺不容易的。经过一些测试，我们判断SCORE\_THRESH\_TEST使用0.5就效果最好。
+
 \section{实验设计及结果}
 数据集将训练集分为训练样本和验证样本，并对测试集中的样本进行测试。
 
-下表中展示各个模型每个类别的 mAP@.5, mAP@.7, mAP@.9, mAP@[.5:.95]。
+AP(Average Precision)是指平均精准度，是对PR曲线上的Precision值求均值。对于pr曲线来说，我们使用积分来进行计算。在实际应用中，我们并不直接对该PR曲线进行计算，而是对PR曲线进行平滑处理。即对PR曲线上的每个点，Precision的值取该点右侧最大的Precision的值。我们使用PASCAL VOC 风格的 11 点插值法进行计算AP。Pascal VOC 2008中设置IoU的阈值为0.5，如果一个目标被重复检测，则置信度最高的为正样本，另一个为负样本。在平滑处理的PR曲线上，取横轴0-1的10等分点（包括断点共11个点）的Precision的值，计算其平均值为最终AP的值。
+
+下表中展示各个模型两个类别的在不同IoU取值下的平均AP，即mAP@.5, mAP@.7, mAP@.9, mAP@[.5:.95]。
 \begin{table}[!htbp]
+\small
 \caption{不同模型下的mAP}  
 \begin{center}  
 \begin{tabular}{|l|l|l|l|l|l|}  
 \hline
-$Model$ & $Class$ & $mAP@.5$ & $mAP@.7$ & $mAP@.9$ & $mAP@[.5:.95]$ \\ \hline
-\multirow{2}{*}{\makecell[c]{SSD}}
- & \makecell[c]{Mask} & \makecell[c]{0.86} & \makecell[c]{0.78} & \makecell[c]{0.22} & \makecell[c]{0.61}\\ \cline{2-6}
- & \makecell[c]{Face} & \makecell[c]{0.81} & \makecell[c]{0.78} & \makecell[c]{0.29} & \makecell[c]{0.63}\\ \hline
+$Model$ & $Class$ & $\makecell*[c]{mAP \\ @.5}$ & $\makecell*[c]{mAP \\ @.7}$ & $\makecell*[c]{mAP \\ @.9}$ & $\makecell*[c]{mAP \\ @[.5:.95]}$ \\ \hline
+\multirow{2}{*}{\makecell*[c]{SSD}}
+& \makecell[c]{Mask} & \makecell[c]{0.86} & \makecell[c]{0.78} & \makecell[c]{0.22} & \makecell[c]{0.61}\\ \cline{2-6}
+& \makecell[c]{Face} & \makecell[c]{0.81} & \makecell[c]{0.78} & \makecell[c]{0.29} & \makecell[c]{0.63}\\ \hline
 
-\multirow{2}{*}{\makecell[c]{Focal Loss}}
+\multirow{2}{*}{\makecell*[c]{Focal Loss}}
 & \makecell[c]{Mask} & \makecell[c]{0.90} & \makecell[c]{0.78} & \makecell[c]{0.14} & \makecell[c]{0.59}\\ \cline{2-6}
 & \makecell[c]{Face} & \makecell[c]{0.87} & \makecell[c]{0.84} & \makecell[c]{0.34} & \makecell[c]{0.69}\\ \hline
 
-\multirow{2}{*}{\makecell[c]{Faster RCNN}}
+\multirow{2}{*}{\makecell*[c]{Faster RCNN}}
 & \makecell[c]{Mask} & \makecell[c]{0.91} & \makecell[c]{0.82} & \makecell[c]{0.25} & \makecell[c]{0.65}\\ \cline{2-6}
 & \makecell[c]{Face} & \makecell[c]{0.91} & \makecell[c]{0.89} & \makecell[c]{0.47} & \makecell[c]{0.75}\\ \hline 
 \end{tabular}  
 \end{center}  
 \end{table}
 
+Precision其实就是在识别出来的图片中，True positives所占的比率：$$precision=\frac{t p}{t p+f p}=\frac{t p}{n}$$，
+其中的n代表的是(True positives + False positives)，也就是系统一共识别出来多少照片。Recall 是被正确识别出来的飞机个数与测试集中所有飞机的个数的比值：$$recall=\frac{t p}{t p+f n}$$，通常tp+fn在目标检测中指groundTruth中的真实目标数量。Precision 和 Recall最早是信息检索中的概念，用来评价一个信息检索系统的优劣。而在目标检测领域，假设我们有一组图片，里面有若干待检测的目标，Precision就代表我们模型检测出来的目标有多打比例是真正的目标物体，Recall就代表所有真实的目标有多大比例被我们的模型检测出来了。
+
+我们当然希望检测的结果P越高越好，R也越高越好，但事实上这两者在某些情况下是矛盾的。比如极端情况下，我们只检测出了一个结果，且是准确的，那么Precision就是100\%，但是Recall就很低；而如果我们把所有结果都返回，那么必然Recall必然很大，但是Precision很低。
+
+因此在不同的场合中需要自己判断希望P比较高还是R比较高。如果是做实验研究，可以绘制Precision-Recall曲线来帮助分析。以Recall值为横轴，Precision值为纵轴，我们就可以得到PR曲线。我们会发现，Precision与Recall的值呈现负相关，在局部区域会上下波动。\\
+
 SSD模型下IoU 阈值取 0.5, 0.7, 0.9 时每类的 Precision-Recall 曲线如下：
 \begin{figure}[h]
 \centering
-\includegraphics[width=3.44in]{ssdResult.bmp}
+\includegraphics[width=3.05in]{ssdResult.bmp}
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
 \caption{SSD模型的Precision-Recall 曲线（左侧从上到下分别是口罩目标检测在IoU=0.5、0.7、0.9时的Precision-Recall 曲线；右侧为脸目标检测。）}
 \end{figure}
 
+Focal Loss模型下IoU 阈值取 0.5, 0.7, 0.9 时每类的 Precision-Recall 曲线如下：
+
 \begin{figure}[h]
 \centering
-\includegraphics[width=3.44in]{FlResult.bmp}
+\includegraphics[width=3.05in]{FlResult.bmp}
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
 \caption{Focal Loss模型的Precision-Recall 曲线（左侧从上到下分别是口罩目标检测在IoU=0.5、0.7、0.9时的Precision-Recall 曲线；右侧为脸目标检测。）}
 \end{figure}
 
+Faster RCNN模型下IoU 阈值取 0.5, 0.7, 0.9 时每类的 Precision-Recall 曲线如下：
+
 \begin{figure}[h]
 \centering
-\includegraphics[width=3.44in]{Frcnn.bmp}
+\includegraphics[width=3.05in]{Frcnn.bmp}
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
@@ -638,30 +796,30 @@ SSD模型下IoU 阈值取 0.5, 0.7, 0.9 时每类的 Precision-Recall 曲线如�
 \end{figure}
 
 \section{实验结果分析}
+不同模型的检测时间不同，对测试集的所有图片进行测试，再进行平均可以发现SSD模型的检测时间最短，其次是Focal Loss，最长的是Faster RCNN：
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.5in]{time.pdf}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{不同模型检测的时间}
+\end{figure}\\
+
 SSD模型结构：
 \begin{figure}[h]
 \centering
-\includegraphics[width=3.44in]{modelgraph.pdf}
+\includegraphics[width=3in]{modelgraph.pdf}
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
 \caption{SSD网络结构}
 \end{figure}
 
-不同模型的检测时间不同，对测试集的所有图片进行测试，再进行平均可以发现SSD模型的检测时间最短，其次是Focal Loss，最长的是Faster RCNN：
-\begin{figure}[h]
-\centering
-\includegraphics[width=3.44in]{time.pdf}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{不同模型检测的时间}
-\end{figure}
-
 \section{小组成员贡献}
-郑家瀚：
+郑家瀚：Focal Loss模型 、Faster RCNN模型 、撰写报告 、数据分析 、实时监测系统
 
-姚非凡：
+姚非凡：SSD模型 、撰写报告 、数据分析
 \section{参考代码}
 见附件中。
 \section{结论}
