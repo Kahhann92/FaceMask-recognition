@@ -199,6 +199,15 @@ valset_path:
 
 ### VOC2COCO
 
+这里会运行的code是把原数据集voc的格式整理、转换成可供Faster-RCNN以及Focal Los使用的COCO格式。如您已经用terminal cd到已经解压的文件里头之后，请cd到test-images里。
+```
+cd code/test-images
+```
+然后再运行这一python 文件。
+```
+python voc2coco.py
+```
+
 
 # 训练模型
 
@@ -228,7 +237,7 @@ or
 
 # 测试模型
 
-这部分将会引导您如何使用各种模型作测试，这里分别对
+这部分将会引导您如何使用各种模型作测试，这里会有三个模型个别作图形检测，以及一个用Faster RCNN来做摄像头实时检测的示范。
 
 ## 图片测试
 
@@ -261,4 +270,4 @@ or
 
 ## 摄像头实时监测
 
-可使用google colab运行webcam_with_Faster_RCNN.ipynb，请点击此[链接](https://colab.research.google.com/drive/1zNjPg_udwPuF-nr4-sEgAZLLjkVVcGeb?usp=sharing)，会连接到我们的google云盘的google colab文件，即可逐步运行。(推荐)
+可使用google colab运行webcam_with_Faster_RCNN.ipynb，请点击此[链接](https://colab.research.google.com/drive/1zNjPg_udwPuF-nr4-sEgAZLLjkVVcGeb?usp=sharing)，会连接到我们的google云盘的google colab文件，即可逐步运行。
