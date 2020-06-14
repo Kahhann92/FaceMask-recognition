@@ -111,9 +111,7 @@ python -m pip install -e detectron2
 
   
 
-To __**rebuild**__ detectron2 that's built from a local clone, use `rm -rf build/ **/*.so` to clean the
-
-old build first. You often need to rebuild detectron2 after reinstalling PyTorch.
+To __**rebuild**__ detectron2 that's built from a local clone, use `rm -rf build/ **/*.so` to clean the old build first. You often need to rebuild detectron2 after reinstalling PyTorch.
 
   
 
@@ -161,15 +159,9 @@ https://dl.fbaipublicfiles.com/detectron2/wheels/cpu/torch1.4/index.html
 
 Note that:
 
-1. The pre-built package has to be used with corresponding version of CUDA and official PyTorch release.
+1. The pre-built package has to be used with corresponding version of CUDA and official PyTorch release. It will not work with a different version of PyTorch or a non-official build of PyTorch.
 
-It will not work with a different version of PyTorch or a non-official build of PyTorch.
-
-2. Such installation is out-of-date w.r.t. master branch of detectron2. It may not be
-
-compatible with the master branch of a research project that uses detectron2 (e.g. those in
-
-[projects](projects) or [meshrcnn](https://github.com/facebookresearch/meshrcnn/)).
+2. Such installation is out-of-date w.r.t. master branch of detectron2. It may not be compatible with the master branch of a research project that uses detectron2 (e.g. those in [projects](projects) or [meshrcnn](https://github.com/facebookresearch/meshrcnn/)).
 
   
 
@@ -268,6 +260,7 @@ or
 使用 jupyter notebook开启 Focal-Loss/Test_10_images_with_Focal_Loss.ipynb，逐步运行。
 
 
-## 摄像头实时监测
+## 摄像头实时检测
 
 可使用google colab运行webcam_with_Faster_RCNN.ipynb，请点击此[链接](https://colab.research.google.com/drive/1zNjPg_udwPuF-nr4-sEgAZLLjkVVcGeb?usp=sharing)，会连接到我们的google云盘的google colab文件，即可逐步运行。
+
