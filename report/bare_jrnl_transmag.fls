@@ -246,5 +246,6 @@ INPUT FlResult.bmp
 INPUT Frcnn.bmp
 INPUT time.pdf
 INPUT modelgraph.pdf
+INPUT discuss.png
 INPUT bare_jrnl_transmag.aux
 INPUT ./bare_jrnl_transmag.out
