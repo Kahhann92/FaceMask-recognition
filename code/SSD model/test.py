@@ -28,8 +28,8 @@ anchors_exp = np.expand_dims(anchors, axis=0)
 id2class = {0: 'Mask', 1: 'NoMask'}
 
 def inference(image,
-              conf_thresh=0.5,
-              iou_thresh=0.5,
+              conf_thresh=0.15,
+              iou_thresh=0.3,
               target_shape=(160, 160),
               draw_result=True,
               show_result=True
@@ -95,34 +95,43 @@ def inference(image,
             Image.fromarray(image).show()
     return output_info
 
+def listdirInMac(path):
+    os_list = os.listdir(path)
+    for item in os_list:
+        if item.startswith('.') and os.path.isfile(os.path.join(path, item)):
+            os_list.remove(item)
+    return os_list
+
 
 if __name__ == "__main__":
-    imgDir = '../test_images'
+    imgDir = '../test-images'
+    imgDir2 = listdirInMac(imgDir)
     thetime = []
+    for imgName in imgDir2:
 
-    for imgName in os.listdir(imgDir):
+        print(imgName)
         imgPath = os.path.join(imgDir, imgName)
-        imgName = imgName.replace('.jpg', '')
-        parser = argparse.ArgumentParser(description="Face Mask Detection")
-        parser.add_argument('--img-mode', type=int, default=1, help='set 1 to run on image, 0 to run on video.')
-        parser.add_argument('--img-path', type=str, help='path to your image.')
-        # parser.add_argument('--hdf5', type=str, help='keras hdf5 file')
-        args = parser.parse_args()
-        args.img_path = imgPath
-        if args.img_mode:
-            imgPath = args.img_path
-            img = cv2.imread(imgPath)
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            t = time.time()
-            output_info = inference(img, show_result=True, target_shape=(260, 260))
-            thetime.append(time.time()-t)
-            print(output_info)
+        print(imgPath)
+        if imgName.endswith('.jpg'):
+            imgName = imgName.replace('.jpg', '')
+            parser = argparse.ArgumentParser(description="Face Mask Detection")
+            parser.add_argument('--img-mode', type=int, default=1, help='set 1 to run on image, 0 to run on video.')
+            parser.add_argument('--img-path', type=str, help='path to your image.')
+            # parser.add_argument('--hdf5', type=str, help='keras hdf5 file')
+            args = parser.parse_args()
+            args.img_path = imgPath
+            if args.img_mode:
+                imgPath = args.img_path
+                img = cv2.imread(imgPath)
+                img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+                t = time.time()
+                output_info = inference(img, show_result=True, target_shape=(260, 260))
+                thetime.append(time.time()-t)
+                print(output_info)
 
-        file = open('./detection/'+imgName+'.txt', 'w')
-        for i in range(len(output_info)):
-            s = str(output_info[i]).replace('{', '').replace('}', '').replace("'", '').replace(':', ',').replace('[', '').replace(']', '').replace(',', '') + '\n'
-            file.write(s)
-    file.close()
+            file = open('./detection/'+imgName+'.txt', 'w')
+            for i in range(len(output_info)):
+                s = str(output_info[i]).replace('{', '').replace('}', '').replace("'", '').replace(':', ',').replace('[', '').replace(']', '').replace(',', '') + '\n'
+                file.write(s)
+        file.close()
     print(np.mean(thetime))
-
-
