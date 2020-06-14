@@ -32,7 +32,6 @@ python train.py
 运行  
 python test.py  
 得到测试结果将在原图中显示是否存在口罩。   
-并且
 
 ## mAP    
 运行test.py后将生成label .txt文件保存在mAP/samples/test10/detection/中    

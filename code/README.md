@@ -242,6 +242,10 @@ or
 python test.py
 ```
 得到测试结果将在原图中显示是否存在口罩。
+运行test.py后将生成label .txt文件保存在mAP/samples/test10/detection/中    
+且mAP/samples/test10/groundtruth/保存了真实label    
+运行mAP/samples/test10/test10.py
+将得到两类的AP值与Precision-Recall Curve
 
 ### Faster RCNN
 
